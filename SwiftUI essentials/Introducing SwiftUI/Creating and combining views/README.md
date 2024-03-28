@@ -42,7 +42,8 @@
 - 스텍, 텍스트, 이미지, 지도를 전부 종합해서 하나의 페이지로 제작
 <img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/Sec6_image.png?raw=true">
 
-## 리스트 생성 및 네비게이션
+## 리스트 생성 및 탐색
 
 ### 섹션 1
-####랜드마크 모델 만들기
+####목록 및 탐색 작성
+
