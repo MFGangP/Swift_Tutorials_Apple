@@ -17,5 +17,8 @@
     
 ## 섹션 4
 ### 사용자 정의 이미지 보기 만들기
-
-
+- .clipShape(Circle())을 사용하면 사진이 동그랗게 잘라진다.
+    - 마스크로 사용하거나 원에 획이나 채우기를 제공하여 뷰로 사용할 수 있음 
+- .overlay
+- Circle().stroke(.gray, lineWidth: 4)를 사용하여 테두리를 설정해 줄 수 있다.
+- Image("").shadow(radius:)를 사용하면 그림자를 줄 수 있다.
