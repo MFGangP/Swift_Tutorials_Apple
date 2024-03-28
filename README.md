@@ -33,3 +33,9 @@
     <img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/Sec5_MapErr.png?raw=true">
     - 안되는게 아니고 캔버스 모드를 계속 키고 있어서 안되는거 였다.
     <img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/Sec5_Success.png?raw=true">
+
+## 섹션 6
+### 세부 View 작성하기
+
+- 스텍, 텍스트, 이미지, 지도를 전부 종합해서 하나의 페이지로 제작
+<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/Sec6_Image.png?raw=true">
