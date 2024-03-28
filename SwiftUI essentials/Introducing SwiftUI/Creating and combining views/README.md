@@ -38,4 +38,4 @@
 ### 세부 View 작성하기
 
 - 스텍, 텍스트, 이미지, 지도를 전부 종합해서 하나의 페이지로 제작
-<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/Sec6_Image.png?raw=true">
+<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/Sec6_image.png?raw=true">
