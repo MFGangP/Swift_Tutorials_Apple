@@ -22,3 +22,7 @@
 - .overlay
 - Circle().stroke(.gray, lineWidth: 4)를 사용하여 테두리를 설정해 줄 수 있다.
 - Image("").shadow(radius:)를 사용하면 그림자를 줄 수 있다.
+
+## 섹션 5
+### 다른 프레임워크의 SwiftUI 뷰 사용
+
