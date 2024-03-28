@@ -100,9 +100,9 @@
 			children = (
 				68C5A1912BB4EF09003BCA1B /* LandmarksApp.swift */,
 				68C5A1932BB4EF09003BCA1B /* ContentView.swift */,
-				68C5A1952BB4EF0A003BCA1B /* Assets.xcassets */,
 				68C5A1BB2BB4FCEE003BCA1B /* CircleImage.swift */,
 				68C5A1BD2BB50323003BCA1B /* MapView.swift */,
+				68C5A1952BB4EF0A003BCA1B /* Assets.xcassets */,
 				68C5A1972BB4EF0A003BCA1B /* Preview Content */,
 			);
 			path = Landmarks;
