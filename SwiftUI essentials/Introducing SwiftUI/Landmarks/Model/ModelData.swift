@@ -6,9 +6,9 @@
 //
 
 import Foundation
-
+// 변수 landmarks는 Landmark 리스트 형식을 따르고 "landmarkData.json"를 불러서 대입
 var landmarks: [Landmark] = load("landmarkData.json")
-
+// 함수
 func load<T: Decodable>(_ filename: String) -> T{
     let data: Data
     
