@@ -59,6 +59,22 @@
 #### 행 미리보기 사용자 정의
 
 - 캔버스 레이블 나누기
+    - 캔버스 레이블을 나눠서 한 화면에서 두가지 이상의 프리뷰를 볼 수 있다.
 <img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/List_Sec3_Lable.png?raw=true">
+
 - 미리보기 그룹화
+    - 아직 어디 쓰는지는 이해하지 못함
 <img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/List_Sec3_Preview.png?raw=true">
+
+### 섹션 4
+#### Landmark 리스트 만들기
+
+- 프리뷰 뿐만 아니라 리스트 내에서 정의해도 가능하다.
+- 미리보기에서 IOS에 적합한 리스트 스타일로 렌더링되어 표시가 된다.
+<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/List_Sec3_List.png?raw=true">
+
+### 섹션 5
+#### 리스트를 동적으로 만들기
+
+- 
+<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/List_Sec3_List.png?raw=true">
