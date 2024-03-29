@@ -57,3 +57,8 @@
 
 ### 섹션 3
 #### 행 미리보기 사용자 정의
+
+- 캔버스 레이블 나누기
+<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/List_Sec3_Lable.png?raw=true">
+- 미리보기 그룹화
+<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/List_Sec3_Preview.png?raw=true">
