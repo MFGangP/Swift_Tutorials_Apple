@@ -51,5 +51,8 @@
 
 ### 섹션 2
 #### 행 뷰 만들기
-<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/List_Sec2.png?raw=true">
+
 - 행 뷰 만들기
+<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/List_Sec2.png?raw=true">
+
+
