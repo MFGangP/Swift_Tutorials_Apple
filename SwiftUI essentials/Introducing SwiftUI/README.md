@@ -48,3 +48,8 @@
 #### 목록 및 탐색 작성
 
 - 모델 만들기 - 데이터 저장 모델
+
+### 섹션 2
+#### 행 뷰 만들기
+<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/List_Sec2.png?raw=true">
+- 행 뷰 만들기
