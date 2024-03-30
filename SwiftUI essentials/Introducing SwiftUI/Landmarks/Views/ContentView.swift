@@ -20,6 +20,7 @@ struct ContentView: View {
                 Text("Turtle Rock")
                     .font(.title)
                     .foregroundStyle(.black)
+                
                 HStack {
                     Text("Joshua Tree National Park")
                         .font(.subheadline)
@@ -27,7 +28,6 @@ struct ContentView: View {
                     Text("California")
                         .font(.subheadline)
                 }
-            }
             // 폰트
             .font(.subheadline)
             // 배경색
@@ -38,6 +38,10 @@ struct ContentView: View {
             Text("About Turtle Rock")
                 .font(.title)
             Text("Descriptive text goes here.")
+        }
+        .padding()
+        
+        Spacer()
         }
     }
 }
