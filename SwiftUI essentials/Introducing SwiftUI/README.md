@@ -94,3 +94,16 @@
 - 사용자 정의 뷰
 
 <img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/List_Sec7_Navi.png?raw=true">
+
+### 섹션 8
+#### 장비 별 미리보기 동적 생성 
+
+- 오른쪽 미리보기에서 장비 종류를 바꾸면 자동으로 변경
+- 다크, 라이트, 가로, 세로 모드도 설정 가능함
+
+<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/List_Sec8_List.png?raw=true">
+
+## 사용자 입력 처리
+
+### 섹션 1
+#### 
