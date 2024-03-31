@@ -85,3 +85,12 @@
 - 뒤로가기 버튼이 생기는 .navigationTitle()
 
 <img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/List_Sec6_Navi.png?raw=true">
+
+### 섹션 7
+#### 하위 뷰에 데이터 전달
+
+- 스크롤 뷰
+- 데이터 바인딩
+- 사용자 정의 뷰
+
+<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/List_Sec7_Navi.png?raw=true">

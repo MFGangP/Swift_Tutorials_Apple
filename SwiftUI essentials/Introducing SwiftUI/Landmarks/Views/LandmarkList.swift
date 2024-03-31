@@ -17,7 +17,7 @@ struct LandmarkList: View {
                 // 내가 눌렀을 때 원하는 View 가 나오는 역할
                 NavigationLink{
                     // 아래에 있는 뷰로 클릭을 했을 때 이동시켜 줌
-                    LandmarkDetail()
+                    LandmarkDetail(landmark: landmark)
                 }label: {
                     // LandmarkRow 반복
                     LandmarkRow(landmark: landmark)
