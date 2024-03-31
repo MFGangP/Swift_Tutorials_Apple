@@ -18,6 +18,12 @@ struct LandmarkRow: View {
             Text(landmark.name)
             
             Spacer()
+            
+            // 랜드마크 좋아요가 참이라면 노란색 별 표시
+            if landmark.isFavorite{
+                Image(systemName:  "star.fill")
+                    .foregroundColor(.yellow)
+            }
         }
     }
 }
