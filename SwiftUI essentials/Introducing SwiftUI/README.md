@@ -17,6 +17,7 @@
 - 텍스트 뷰에서도 Control-클릭을 사용하여 컨텍스트 메뉴 사용 가능
     - 메뉴를 통해 스택 등 다양한 기능 추가 가능
     <img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/Sec3_Text.png?raw=true">
+    
 ### 섹션 4
 #### 사용자 정의 이미지 보기 만들기
 - .clipShape(Circle())을 사용하면 사진이 동그랗게 잘라진다.
