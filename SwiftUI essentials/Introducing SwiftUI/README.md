@@ -71,10 +71,17 @@
 
 - 프리뷰 뿐만 아니라 리스트 내에서 정의해도 가능하다.
 - 미리보기에서 IOS에 적합한 리스트 스타일로 렌더링되어 표시가 된다.
-<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/List_Sec3_List.png?raw=true">
+<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/List_Sec4_List.png?raw=true">
 
 ### 섹션 5
 #### 리스트를 동적으로 만들기
 
-- 
-<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/List_Sec3_List.png?raw=true">
+- 리스트 문을 통해 랜드마크 호출
+
+### 섹션 6
+#### 리스트와 네비게이션
+
+- 동적으로 생성된 랜드마크 목록을 네비게이션에 연결해 줌
+- 뒤로가기 버튼이 생기는 .navigationTitle()
+
+<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/List_Sec6_Navi.png?raw=true">
