@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct LandmarkList: View {
+    
+    // 상태 속성을 사용하여 뷰 및 해당 하위 뷰와 관련된 정보를 보유하기 때문에 항상 상태를 private로 해줘야한다.
+    @State private var showFavoritesOnly = false
+    
     var body: some View {
         NavigationSplitView {
             // landmarks 구성요소를 리스트 형식으로 반환

@@ -112,3 +112,8 @@
 - 변수 isFavorite 선언으로 좋아요 표시하기
 
 <img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/User_Sec1.png?raw=true" width="640" height="360"/>
+
+### 섹션 2
+#### 리스트 보기 필터링
+
+- 
