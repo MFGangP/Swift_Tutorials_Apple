@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LandmarkRow: View {
     var landmark: Landmark
-    
+    // 랜드마크 행의 역할은 이미지와 이미지 이름을 가로로 표시해주는 것
     var body: some View {
         HStack{
             landmark.image
