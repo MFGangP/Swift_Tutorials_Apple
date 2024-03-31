@@ -21,10 +21,10 @@
 ### 섹션 4
 #### 사용자 정의 이미지 보기 만들기
 - .clipShape(Circle())을 사용하면 사진이 동그랗게 잘라진다.
-    - 마스크로 사용하거나 원에 획이나 채우기를 제공하여 뷰로 사용할 수 있음 
-        <img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/Sec4_Image.png?raw=true" width="640" height="360"/>
+    - 마스크로 사용하거나 원에 획이나 채우기를 제공하여 뷰로 사용할 수 있음
+    <img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/Sec4_Image.png?raw=true" width="640" height="360"/>
     - 그러나 이미지에 따라 배율이라던지 전체적으로 문제가 있음. 살펴봐야 할 듯.
-        <img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/Sec4_ImageAsset.png?raw=true" width="640" height="360"/>
+    <img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/Sec4_ImageAsset.png?raw=true" width="640" height="360"/>
 - .overlay
 - Circle().stroke(.gray, lineWidth: 4)를 사용하여 테두리를 설정해 줄 수 있다.
 - Image("").shadow(radius:)를 사용하면 그림자를 줄 수 있다.
