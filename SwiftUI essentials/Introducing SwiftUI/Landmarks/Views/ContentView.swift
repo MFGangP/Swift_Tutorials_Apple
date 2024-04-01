@@ -48,6 +48,9 @@ struct ContentView: View {
 }
 
 #Preview {
+    // ContentView 미리보기를 업데이트하여 모델 개체를 환경에 추가하면 개체를 모든 하위 보기에서 사용할 수 있습니다.
     ContentView()
+    // 환경에 모델 개체가 필요하지만 미리 보는 보기에 환경(_:) 수식자가 없는 경우 미리 보기가 실패합니다.
+        .environment(ModelData())
 }
 

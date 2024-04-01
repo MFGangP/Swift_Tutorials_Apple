@@ -116,4 +116,27 @@
 ### 섹션 2
 #### 리스트 보기 필터링
 
-- 
+- Favorite, filter를 통해 리스트 필터링
+<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/User_Sec2.png?raw=true" width="640" height="360"/>
+
+### 섹션 3
+#### 상태를 전환하는 토글 컨트롤 추가
+
+- Toggle(isOn: ) {} 토글 뷰
+- .animation(.default, value: ) 애니메이션 수정자
+<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/User_Sec3.png?raw=true" width="640" height="360"/>
+
+### 섹션 4
+#### 저장을 위한 관찰자(observation) 사용
+
+- command + option + { 또는 } 로 줄을 한 줄 씩 옮길 수 있다.
+- SwiftUI는 관찰자 속성이 변할 때 와 View body가 속성을 직접 읽을 때 업데이트 된다.
+<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/User_Sec4.png?raw=true" width="640" height="360"/>
+
+### 섹션 5
+#### View에서 model object 채택하기
+
+- @Environment(ModelData.self) var modelData 환경 변수는 무엇인가(?)
+- Preview에 Environment를 추가해주는 이유가 뭔가(?)
+
+<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/User_Sec5.png?raw=true" width="640" height="360"/>

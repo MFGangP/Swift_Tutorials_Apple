@@ -29,7 +29,9 @@ struct LandmarkRow: View {
 }
 
 #Preview("Turtle Rock") {
-    Group{
+    // LandmarkRow Preview를 작동시키기 위해 ModelData 오브젝트 업데이트
+    let landmarks = ModelData().landmarks
+    return Group{
         LandmarkRow(landmark: landmarks[0])
         LandmarkRow(landmark: landmarks[1])
     }
