@@ -27,3 +27,16 @@
 - 토글, 애니메이션 추가
 - environment(_:) modifier -> 이해 못했음
 
+## 5일차 (2024-04-02)
+### [스위프트 기본 학습 : The Swift Programming Language](https://bbiguduk.gitbook.io/swift/language-guide-1/the-basics) : 애플 디벨로퍼 듀토리얼 5일차
+- 상수와 변수, 이름, 출력, 타입 명시
+- 주석
+- 세미콜론
+- 정수, Int, UInt
+- 타입 세이프티와 타입 추론
+    - 코드를 컴파일 할 때 타입 검사를 수행하고 일치하지 않는 타입을 오류로 표시
+- 숫자 리터럴
+    - 접두사 없는 10진수
+    - 0b : 접두사로 2진수
+    - 0o : 접두사로 8진수
+    - 0x : 접두사로 16진수
