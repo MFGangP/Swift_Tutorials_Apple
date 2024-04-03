@@ -4,7 +4,6 @@
 //
 //  Created by lovehyun95 on 3/28/24.
 //
-
 import Foundation
 
 // Observable 매크로를 사용하여 새 클래스를 선언

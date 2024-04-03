@@ -64,6 +64,6 @@ struct LandmarkDetail: View {
 }
 
 #Preview {
-    // ModelData 오브젝트의 환경 개채를 사용하도록 뷰를 수정
+        // ModelData 오브젝트의 환경 개채를 사용하도록 뷰를 수정
     LandmarkDetail(landmark: ModelData().landmarks[0])
 }
