@@ -51,4 +51,11 @@
         - 0xFp2 는 15 x 2² , 또는 60.0
         - 0xFp-2 는 15 x 2⁻² , 또는 3.75
 - 정수 변환
-    - 
+    - 타입이 다른 두 상수끼리 더하고 싶을 때 초기화 해주면 더할 수 있다.
+    - let twoThousand: UInt16 = 2_000
+    - let one: UInt8 = 1
+    - let twoThousandAndOne = twoThousand + UInt16(one)
+
+- 정수와 부동 소수점 변환
+    - 정수와 부동 소수점 숫자 타입의 변환은 명시적으로 하여야 함.
+    
