@@ -173,4 +173,13 @@
 - 복합 대입 연산자 (Compound Assignment Operators)
     - C처럼 Swift는 대입 (=)과 다른 연산자를 결합한 복합 대입 연산자 (compound assignment operators) 를 제공
 - 비교 연산자 (Comparison Operators)
-
+- 삼항 조건 연산자 (Ternary Conditional Operator)
+    - 삼항 조건 연산자 (ternary conditional operator) 는 question ? answer1 : answer2 형태의 3가지 부분으로 이루어진 특별한 연산자
+    - question 이 참이라면 answer1 을 반환하고 반대면 answer2 를 반환.
+- Nil-결합 연산자 (Nil-Coalescing Operator)
+    - (a ?? b)는 옵셔널 a에 값이 있으면 a를 풀거나 a가 nil 이면 기본값 b를 반환합니다. 표현식 a는 항상 옵셔널 타입 입니다. 표현식 b는 a에 저장된 타입과 같아야 합니다.
+    ``` swift
+        a != nil ? a! : b
+    ``` 
+#### 범위 연산자 (Range Operators)
+- 닫힌 범위 연산자 (Closed Range Operator)
