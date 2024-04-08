@@ -148,3 +148,13 @@
 - @Bindable 래퍼의 구체적인 역할은 무엇인가?
 
 <img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/User_Sec6.gif?raw=true" width="640" height="360"/>
+
+## 경로 및 모양 그리기
+
+### 섹션 1 
+#### 배지 보기에 대한 그리기 데이터 만들기
+
+- 육각형 각 측면에 대한 세그먼트 데이터를 추가
+
+<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/Drawing_Sec1.png?raw=true" width="640" height="360"/>
+
