@@ -75,4 +75,10 @@
 - 옵셔널 바인딩
     - 옵셔널이 값을 포함하는지 확인, 있는 경우 임시 상수 또는 변수로 사용가능하게 해줌
     
+## 8일차 (2024-04-08)
+### [사용자 입력 처리](https://github.com/MFGangP/Swift_Tutorials_Apple/tree/main/SwiftUI%20essentials/Introducing%20SwiftUI) : 애플 디벨로퍼 듀토리얼 8일차
+- 2일차 파일에 이어서 학습
+- isFavorite 버튼 추가
+- modelData를 통한 상태 확인
+- Swift 필수 사항 완료
 
