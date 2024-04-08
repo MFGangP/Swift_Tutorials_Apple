@@ -141,3 +141,10 @@
 - Preview에 Environment를 추가해주는 이유가 뭔가(?)
 
 <img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/User_Sec5.png?raw=true" width="640" height="360"/>
+
+### 섹션 6
+#### 각 랜드마크에 즐겨찾기 버튼 만들기
+
+- @Bindable 래퍼의 구체적인 역할은 무엇인가?
+
+<img src = "https://github.com/MFGangP/Swift_Tutorials_Apple/blob/main/Image/User_Sec6.gif?raw=true" width="640" height="360"/>

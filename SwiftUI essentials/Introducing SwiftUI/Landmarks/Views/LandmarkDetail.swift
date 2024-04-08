@@ -8,10 +8,19 @@
 import SwiftUI
 
 struct LandmarkDetail: View {
+    @Environment(ModelData.self) var modelData
     
     var landmark: Landmark
     
+    var landmarkIndex: Int {
+        // 모델 데이터와 비교하여 랜드마크의 입력 인덱스를 계산
+        modelData.landmarks.firstIndex(where: { $0.id == landmark.id})!
+    }
+    
     var body: some View {
+        // Bindable 래퍼를 사용하여 모델 데이터 추가
+        @Bindable var modelData = modelData
+        
         // 사용자가 스크롤 할 수 있도록 변경
         ScrollView {
         // VStack {
@@ -27,9 +36,14 @@ struct LandmarkDetail: View {
                 .padding(.bottom, -130)
             // 타이틀 자리
             VStack(alignment: .leading) {
-                // Text("Turtle Rock")
-                Text(landmark.name)
-                    .font(.title)
+                // 랜드마크 이름을 포함하고 $기호로 isFavorite 속성에 바인딩을 제공
+                HStack{
+                    // Text("Turtle Rock")
+                    Text(landmark.name)
+                        .font(.title)
+                    // landmarkIndex를 사용하여 버튼이 모델 객체에 저장된 랜드마크의 isFavorite 속성을 업데이트 하는지 확인
+                    FavoriteButton(isSet: $modelData.landmarks[landmarkIndex].isFavorite)
+                }
                 // 상세 설명
                 HStack {
                     // Text("Joshua Tree National Park")
@@ -64,6 +78,9 @@ struct LandmarkDetail: View {
 }
 
 #Preview {
-        // ModelData 오브젝트의 환경 개채를 사용하도록 뷰를 수정
-    LandmarkDetail(landmark: ModelData().landmarks[0])
+    let modelData = ModelData()
+    return LandmarkDetail(landmark: modelData.landmarks[0])
+        .environment(modelData)
+//        // ModelData 오브젝트의 환경 개채를 사용하도록 뷰를 수정
+//    LandmarkDetail(landmark: ModelData().landmarks[0])
 }
