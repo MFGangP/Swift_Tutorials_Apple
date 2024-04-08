@@ -88,14 +88,16 @@
 
 - isFavorite 버튼 추가, modelData를 통한 상태 확인
 - Swift 필수 사항 완료
-- 배지 보기에 대한 그리기 데이터 만들기
+- 배지 View에 대한 그리기 데이터 만들기
+
+### [스위프트 기본 학습 : The Swift Programming Language](https://bbiguduk.gitbook.io/swift/language-guide-1/the-basics) : 애플 디벨로퍼 듀토리얼 8일차
+
 - 대체값 제공 (Providing a Fallback Value)
     - 누락된 값을 처리하는 다른 방법은 nil-결합 연산자 (??) 사용하여 기본값을 제공하는 방법
     - 옵셔널에서 ?? 의 왼편이 nil 이 아니면, 값은 언래핑되고 사용됩니다. 그렇지 않으면 ?? 의 오른편에 값이 사용됩니다. 
-    
-``` swift
-    let name: String? = nil
-    let greeting = "Hello, " + (name ?? "friend") + "!"
-    print(greeting)
-    // Prints "Hello, friend!"
-```
+    ``` swift
+        let name: String? = nil
+        let greeting = "Hello, " + (name ?? "friend") + "!"
+        print(greeting)
+        // Prints "Hello, friend!"
+    ```
