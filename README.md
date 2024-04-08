@@ -34,7 +34,7 @@
 
 ## 5일차 (2024-04-02)
 ### [스위프트 기본 학습 : The Swift Programming Language](https://bbiguduk.gitbook.io/swift/language-guide-1/the-basics) : 애플 디벨로퍼 듀토리얼 5일차
-
+#### 기본(The Basics)
 - 상수와 변수, 이름, 출력, 타입 명시
 - 주석
 - 세미콜론
@@ -82,6 +82,7 @@
     - 옵셔널 아닌 상수와 변수에 사용 x
 - 옵셔널 바인딩
     - 옵셔널이 값을 포함하는지 확인, 있는 경우 임시 상수 또는 변수로 사용가능하게 해줌
+    - if문을 이용하여 옵셔널에 할당된 값을 임시 변수 또는 상수에 할당을 해주는 방식
     
 ## 8일차 (2024-04-08)
 ### [사용자 입력 처리](https://github.com/MFGangP/Swift_Tutorials_Apple/tree/main/SwiftUI%20essentials/Introducing%20SwiftUI) : 애플 디벨로퍼 듀토리얼 8일차
@@ -101,3 +102,75 @@
         print(greeting)
         // Prints "Hello, friend!"
     ```
+
+- 강제 언래핑 (Force Unwrapping)
+    - String과 String!는 같지 않기 때문에 동일시 할 수 없다.
+    - 프로그래머의 에러 또는 원치않는 상태와 같은 실패를 nil 로 표현하려면 옵셔널의 이름 뒤에 느낌표 (!) 를 추가하여 접근할 수 있습니다. 이것을 옵셔널의 값의 강제 언래핑 (force unwrapping) 이라고 합니다. 
+    ``` swift
+        let possibleNumber = "123"
+        let convertedNumber = Int(possibleNumber)
+
+        let number = convertedNumber!
+
+        guard let number = convertedNumber else {
+            fatalError("The number was invalid")
+        }
+    ```
+- 암시적으로 언래핑된 옵셔널 (Implicitly Unwrapped Optionals)
+    - 일반 옵셔널과 동일하게 값의 부재를 나타낼 수 있다. (nil 혹은 값 할당이 가능하다)
+    - 일반 옵셔널과 동일하게 옵셔널 언래핑 처리 과정을 거친 후에 값을 사용할 수도 있다.
+    - 일반 옵셔널과는 다르게 옵셔널 언래핑 처리 과정을 거치지 않고도 값에 접근이 가능하다.
+    - 만약 nil이 들어있는 암시적으로 언래핑한 옵셔널에 접근하면 runtime에 프로그램이 비정상적으로 종료된다.
+
+- 에러 처리 (Error Handling)
+    - 함수에 에러 조건이 되면 에러가 발생 합니다. 해당 함수의 호출자는 에러를 포착 하고 적절하게 응답할 수 있습니다.
+    ```
+        do {
+            try canThrowAnError()
+            // no error was thrown
+        } catch {
+            // an error was thrown
+        }
+    ```
+    - 함수는 선언에 throws 키워드를 포함시켜 에러가 발생할 수 있음을 나타냅니다. 에러를 발생할 수 있는 함수를 호출할 때는 표현식 앞에 try 키워드를 붙여야 합니다.
+- 역설과 전제조건 (Assertions and Preconditions)
+    - 역설과 전제조건 (Assertions and preconditions) 은 런타임시 발생하는 조건입니다. 추가 코드를 실행하기 전에 이를 사용하여 필수조건이 충족되는지 확인할 수 있습니다. 
+- 역설을 통한 디버깅 (Debugging with Assertions)
+    - Swift 표준 라이브러리에 assert(_:_:file:line:) 함수로 역설을 작성할 수 있습니다. 이 함수에 true 또는 false 로 판단될 표현식과 조건이 false 일 경우 출력될 메세지를 전달합니다.
+    ``` swift
+    let age = -3
+    assert(age >= 0, "A person's age can't be less than zero.")
+    // This assertion fails because -3 is not >= 0.
+    ```
+- 강제 전제조건 (Enforcing Preconditions)
+    - 조건이 거짓 일 가능성이 있을 때마다 전제조건을 사용하지만 코드가 순차적으로 실행되려면 확실하게 참이어야 합니다. 예를 들어 어떤 값들이 범위를 벗어나는지 또는 함수에 유효한 값이 전달되는지 체크하기위해 전제조건을 사용합니다.
+    - precondition(_:_:file:line:) 함수로 전제조건을 작성할 수 있습니다. 이 함수에 true 또는 false 로 판단될 표현식과 조건이 false 일 경우 출력될 메세지를 전달합니다.
+    ``` swift
+    // In the implementation of a subscript...
+    precondition(index > 0, "Index must be greater than zero.")
+    ```
+
+#### 기본 연산자 (Basic Operators)
+- 술어 (Terminology)
+    - 연산자는 단항 (unary), 이항 (binary), 또는 삼항 (ternary)입니다:
+        - 단항 (Unary) 연산자는 -a 처럼 단일 항목에 동작합니다. 단항 접두사 연산자는 !b 처럼 항목 바로 직전에 위치하고 단항 접미사 연산자는 c! 처럼 항목 바로 다음에 위치합니다.
+        - 이항 (Binary) 연산자는 2 + 3 처럼 2개의 항목에 동작하고 2개의 항목 사이에 위치해야 하므로 위치는 고정 입니다.
+        - 삼항 (Ternary) 연산자는 3개의 항목에 동작합니다. C 처럼 Swift는 하나의 삼항 연산자만 있으며 삼항 조건 연산자 (a ? b : c)입니다.
+    - 연산자가 영향을 주는 값은 피연산자 입니다. 1 + 2 표현식에서 + 기호는 중위 연산자 (infix operator)이고 값 1 과 2 는 피연산자 입니다.
+- 대입 연산자 (Assignment Operator)
+    -(a = b) 는 b 의 값으로 초기화 되거나 업데이트 됩니다.
+    - 대입의 우항이 여러개의 값이 있는 튜플이라면 튜플의 요소는 여러개의 상수 또는 변수로 한번에 분해될 수 있습니다.
+    ``` swift
+        Copy
+        let (x, y) = (1, 2)
+        // x is equal to 1, and y is equal to 2
+    ```
+- 산술 연산자 (Arithmetic Operators)
+    - 덧셈 (+), 뺄셈 (-), 곱셈 (*), 나눗셈 (/)
+- 나머지 연산자 (Remainder Operator)
+    - 나머지 연산자 (remainder operator) (a % b)는 a 안에 들어갈 b 의 배수가 몇인지를 계산하고 남은 값 (나머지)을 반환
+- 단항 덧셈 연산자 (Unary Plus Operator)
+- 복합 대입 연산자 (Compound Assignment Operators)
+    - C처럼 Swift는 대입 (=)과 다른 연산자를 결합한 복합 대입 연산자 (compound assignment operators) 를 제공
+- 비교 연산자 (Comparison Operators)
+
