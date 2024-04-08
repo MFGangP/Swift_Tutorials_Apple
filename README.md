@@ -183,3 +183,5 @@
     ``` 
 #### 범위 연산자 (Range Operators)
 - 닫힌 범위 연산자 (Closed Range Operator)
+    
+- 반-열림 범위 연산자 (Half-Open Range Operator)
