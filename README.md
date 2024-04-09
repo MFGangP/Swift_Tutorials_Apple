@@ -190,4 +190,6 @@
 ### 블렌더 기본
 - 동전 만들기
 
-### [스위프트 기본 학습 : The Swift Programming Language](https://bbiguduk.gitbook.io/swift/language-guide-1/the-basics) : 애플 디벨로퍼 듀토리얼 8일차
+### [스위프트 기본 학습 : First steps in Swift](https://www.hackingwithswift.com/100/swiftui) : 애플 디벨로퍼 듀토리얼 9일차
+- 변수, 상수, 문자열 및 숫자, 부울, 문자열 보간 및 체크포인트 1
+
