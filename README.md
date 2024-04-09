@@ -185,3 +185,9 @@
 - 닫힌 범위 연산자 (Closed Range Operator)
     
 - 반-열림 범위 연산자 (Half-Open Range Operator)
+
+## 9일차 (2024-04-09)
+### 블렌더 기본
+- 동전 만들기
+
+### [스위프트 기본 학습 : The Swift Programming Language](https://bbiguduk.gitbook.io/swift/language-guide-1/the-basics) : 애플 디벨로퍼 듀토리얼 8일차
