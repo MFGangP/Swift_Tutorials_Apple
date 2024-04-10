@@ -24,7 +24,7 @@ struct HexagonParameters {
                 curve: CGPoint(x: 0.40, y: 0.05),
                 control: CGPoint(x: 0.50, y: 0.00)
                ),
-        // 육각형의 모양을 조정할 수 있는 조정 값을 추가
+        // 육각형의 모양을 조정할 수 있는 조정 값을 추가 (x: 0.05, y: 0.20 + adjustment)
         Segment(line: CGPoint(x: 0.05, y: 0.20 + adjustment),
                 curve: CGPoint(x: 0.00, y: 0.30 + adjustment),
                 control: CGPoint(x: 0.00, y: 0.25 + adjustment)
