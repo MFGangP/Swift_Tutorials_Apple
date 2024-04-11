@@ -195,4 +195,22 @@
 
 ## 10일차 (2024-04-09)
 ### [스위프트 기본 학습 : First steps in Swift](https://www.hackingwithswift.com/100/swiftui) : 애플 디벨로퍼 듀토리얼 10일차
-- 배열, 사전, 세트 및 열거형, 주석 입력 및 체크포인트 2
+- 배열, 사전, 세트 및 열거형, type annotations, 주석 입력 및 체크포인트 2
+- 은근 많이 봤던 형식의 코드라서 첨부
+    ``` swift
+        // Array 추가한 순서대로 다양한 값을 보유합니다. 이는 다음과 같이 전문화되어야 합니다 [String].
+        var albums: [String] = ["Red", "Fearless"]
+        // Dictionary데이터에 액세스하는 방법을 결정할 수 있는 다양한 값이 있습니다. 이는 다음과 같이 전문화되어야 합니다 [String: Int].
+        var user: [String: String] = ["id": "@twostraws"]
+        // Set다양한 값을 보유하지만 포함된 내용을 확인하는 데 최적화된 순서로 저장합니다. 이는 다음과 같이 전문화되어야 합니다 Set<String>.
+        var books: Set<String> = Set(["The Bluest Eye", "Foundation", "Girl, Woman, Other"])
+        // 초기 값을 제공하고 싶지 않은 경우 이러한 유형을 모두 아는 것이 중요합니다. 예를 들어, 다음은 문자열 배열을 생성합니다.
+        var soda: [String] = ["Coke", "Pepsi", "Irn-Bru"]
+        // Swift는 문자열 배열을 할당하고 있음을 볼 수 있기 때문에 유형 주석이 필요하지 않습니다. 그러나 빈 문자열 배열을 생성하려면 다음 유형을 알아야 합니다.
+        var teams: [String] = [String]()
+        // 다시 말하지만, 유형 주석은 필수가 아니지만 문자열 배열이 작성되어 있음을 알아야 합니다 [String]. 빈 배열, 딕셔너리, 세트를 만들 때 여는 괄호와 닫는 괄호를 추가해야 한다는 점을 기억하세요. 왜냐하면 Swift에서 생성 방식을 사용자 정의할 수 있는 곳이기 때문입니다.
+        // 어떤 사람들은 유형 주석을 선호하고 다음과 같이 빈 배열을 할당합니다.
+        var cities: [String] = []
+        // 나는 가능한 한 유형 추론을 사용하는 것을 선호하므로 다음과 같이 작성합니다.
+        var clues = [String]()
+    ```
