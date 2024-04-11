@@ -193,3 +193,6 @@
 ### [스위프트 기본 학습 : First steps in Swift](https://www.hackingwithswift.com/100/swiftui) : 애플 디벨로퍼 듀토리얼 9일차
 - 변수, 상수, 문자열 및 숫자, 부울, 문자열 보간 및 체크포인트 1
 
+## 10일차 (2024-04-09)
+### [스위프트 기본 학습 : First steps in Swift](https://www.hackingwithswift.com/100/swiftui) : 애플 디벨로퍼 듀토리얼 10일차
+- 배열, 사전, 세트 및 열거형, 주석 입력 및 체크포인트 2
