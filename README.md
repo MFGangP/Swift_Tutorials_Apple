@@ -215,4 +215,7 @@
         var clues = [String]()
     ```
 ## 11일차 (2024-04-11)
-### [스위프트 기본 학습 : First steps in Swift](https://www.hackingwithswift.com/100/swiftui) : 애플 디벨로퍼 듀토리얼 10일차
+### NC1 Figma 작업 + 디자인 기초
+
+## 12일차 (2024-04-12)
+### Tech GA 수업 + NC1 Figma 작업
