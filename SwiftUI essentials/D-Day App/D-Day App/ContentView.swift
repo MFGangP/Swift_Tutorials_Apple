@@ -20,9 +20,9 @@ struct Memo {
     // Stored Property 저장된 프로퍼티 - 저장된 상수 또는 변수
     var title: String
     var endDate: Date
-    
+    // struct 안에 포함된 메서드
     func getDDatString() -> String {
-        // 날짜와 날짜 사이의 간격을 알기 위해서 스위프트에서 기본으로 제공하는 기능
+        // 특정 날짜와 날짜 사이의 간격을 알기 위해서 스위프트에서 기본으로 제공하는 기능
         let offsetComps = Calendar.current.dateComponents([.day], from: self.endDate, to: Date.now)
         // Int? 옵셔널 타입 있을 수도 있고 없을 수도 있다
         // 옵셔널 값을 꺼내쓰기 위해 사용하는 guard
@@ -30,7 +30,7 @@ struct Memo {
         guard let dayOffset = offsetComps.day else { return "error"}
         // String을 내보내겠다고 선언을 했기 때문에 문자열 반환
         switch dayOffset{
-        case 1...: return "D+\(dayOffset)"
+        case 1..<10000: return "D+\(dayOffset)"
         case 0: return "D-Day"
         default: return "D\(dayOffset)"
         }
@@ -55,7 +55,8 @@ struct ContentView: View {
             List(memoList, id: \.id) { memo in
                 HStack {
                     Text(memo.title)
-                    Text(memo.endDate.description)
+                    // 날짜를 계산해서 뿌려주기 위해 사용하는 함수 위에 정의 해놓음
+                    Text(memo.getDDatString())
                     Spacer()
                 }
             }
