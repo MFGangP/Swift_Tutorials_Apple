@@ -94,6 +94,7 @@ struct TabBarItem: View {
         } label: {
             VStack {
                 Spacer()
+                    .frame(minHeight: 60, maxHeight: 60)
                 Text(tabBarItemName)
                 if currentTab == tab {
                     Color.black

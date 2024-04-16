@@ -36,6 +36,32 @@ enum MedicineEnumVolume: String, CaseIterable {
     case millilitre = "ml"
     case percent = "%"
 }
+
+enum ArticulationList: String, CaseIterable {
+    case finger = "손가락"
+    case wrist = "손목"
+    case elbow = "팔꿈치"
+    case shoulder = "어깨"
+    case toes = "발가락"
+    case ankle = "발목"
+    case knee = "무릎"
+    case chin = "턱"
+    case neck = "목"
+    case waist = "허리"
+}
+
+enum ArticulationDirection: String, CaseIterable{
+    case left = "왼쪽"
+    case right = "오른쪽"
+}
+
+enum FingerAndToesNum: String, CaseIterable {
+    case first = "첫번째"
+    case second = "두번째"
+    case third = "세번째"
+}
+
+
 //VStack {
 //        // allCases를 통해 Enum 안에 있는 모든 케이스를 꺼내오는데, rawValue를 통해 요소가 가지고 있는 값을 반환
 //        ForEach(MedicineEnumType.allCases, id: \.self) { medicine in
@@ -45,7 +71,7 @@ enum MedicineEnumVolume: String, CaseIterable {
 
 // 캡슐, 정제, 액체, 국소성
 // 로션, 연고, 크림, 젤, 기기, 분무제, 점적, 좌약, 주사, 파우더, 패치, 폼, 흡입기
-struct Medicine {
+struct MedicineList {
     let medicineName : String
     let medicineType : MedicineEnumType
     let medicineVolume : Int
