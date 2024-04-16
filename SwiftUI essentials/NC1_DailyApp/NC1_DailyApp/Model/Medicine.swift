@@ -9,6 +9,8 @@ import Foundation
 // 이번 챌린지로 이거 두개 써보기
 // RawValue
 // CaseIterable
+
+// 약 종류
 enum MedicineEnumType: String, CaseIterable {
     case capsule = "캡슐"
     case tablet = "알약"
@@ -28,7 +30,7 @@ enum MedicineEnumType: String, CaseIterable {
     case form = "폼"
     case inspirator = "흡입기"
 }
-
+// 약 용량
 enum MedicineEnumVolume: String, CaseIterable {
     case milligram = "mg"
     case microgram = "mcg"
@@ -36,7 +38,7 @@ enum MedicineEnumVolume: String, CaseIterable {
     case millilitre = "ml"
     case percent = "%"
 }
-
+// 아픈 관절 부위
 enum ArticulationList: String, CaseIterable {
     case finger = "손가락"
     case wrist = "손목"
@@ -49,12 +51,12 @@ enum ArticulationList: String, CaseIterable {
     case neck = "목"
     case waist = "허리"
 }
-
+// 좌우 구분
 enum ArticulationDirection: String, CaseIterable{
     case left = "왼쪽"
     case right = "오른쪽"
 }
-
+// 아픈 관절 번호
 enum FingerAndToesNum: String, CaseIterable {
     case first = "첫번째"
     case second = "두번째"
@@ -71,16 +73,31 @@ enum FingerAndToesNum: String, CaseIterable {
 
 // 캡슐, 정제, 액체, 국소성
 // 로션, 연고, 크림, 젤, 기기, 분무제, 점적, 좌약, 주사, 파우더, 패치, 폼, 흡입기
-struct MedicineList {
-    let medicineName : String
-    let medicineType : MedicineEnumType
-    let medicineVolume : Int
-    let medicineUnit : MedicineEnumVolume
-    let medicineFrequency : UInt8
-    let administrationTime : Date
-    let medicineShape : String
-    let medicineLeftColor : String
-    let medicineRightColor : String
-    let backgroundColor : String
+
+struct Medicine {
+    var id = UUID()
+    var date: Date
+    var medicineDetail: MedicineDetail
+    var painDetail: PainDetail
 }
 
+struct MedicineDetail {
+    let medicineName : String // 약 이름
+    let medicineType : MedicineEnumType // 약 종류
+    let medicineVolume : Int // 약 용량
+    let medicineUnit : MedicineEnumVolume // 용량 단위
+    let medicineFrequency : Int // 복용 주기
+    let administrationTime : Date // 복용 시간
+    let medicineShape : String // 약 생김새
+    let medicineLeftColor : String // 약 색깔 - 왼쪽
+    let medicineRightColor : String // 약 색깔 - 오른쪽
+    let backgroundColor : String // 약 배경 색깔
+}
+
+struct PainDetail {
+    let painPart : String // 아픈 관절 부위
+    let painPartNumber : Int // 아픈 관절 번호
+    let painPartAttendants : String // 통증 좌우 위치
+    let painDegree : Int // 통증 정도
+    let painPeriod : Date // 통증 기간
+}

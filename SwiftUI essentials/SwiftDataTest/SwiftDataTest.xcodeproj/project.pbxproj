@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		683D5EE32BCE5685008FD603 /* MyDairy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683D5EE22BCE5685008FD603 /* MyDairy.swift */; };
+		683D5EE52BCE5D4F008FD603 /* Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683D5EE42BCE5D4F008FD603 /* Save.swift */; };
 		687B0BD52BCE4A3300CA7C57 /* SwiftDataTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B0BD42BCE4A3300CA7C57 /* SwiftDataTestApp.swift */; };
 		687B0BD72BCE4A3300CA7C57 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B0BD62BCE4A3300CA7C57 /* ContentView.swift */; };
 		687B0BD92BCE4A3400CA7C57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 687B0BD82BCE4A3400CA7C57 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 		687B0BE62BCE4A3400CA7C57 /* SwiftDataTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B0BE52BCE4A3400CA7C57 /* SwiftDataTestTests.swift */; };
 		687B0BF02BCE4A3400CA7C57 /* SwiftDataTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B0BEF2BCE4A3400CA7C57 /* SwiftDataTestUITests.swift */; };
 		687B0BF22BCE4A3400CA7C57 /* SwiftDataTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B0BF12BCE4A3400CA7C57 /* SwiftDataTestUITestsLaunchTests.swift */; };
+		687B0BFF2BCE501100CA7C57 /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B0BFE2BCE501100CA7C57 /* Modal.swift */; };
+		687B0C012BCE527E00CA7C57 /* UseBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B0C002BCE527E00CA7C57 /* UseBinding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		683D5EE22BCE5685008FD603 /* MyDairy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDairy.swift; sourceTree = "<group>"; };
+		683D5EE42BCE5D4F008FD603 /* Save.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Save.swift; sourceTree = "<group>"; };
 		687B0BD12BCE4A3300CA7C57 /* SwiftDataTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDataTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		687B0BD42BCE4A3300CA7C57 /* SwiftDataTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataTestApp.swift; sourceTree = "<group>"; };
 		687B0BD62BCE4A3300CA7C57 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +50,8 @@
 		687B0BEB2BCE4A3400CA7C57 /* SwiftDataTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDataTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		687B0BEF2BCE4A3400CA7C57 /* SwiftDataTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataTestUITests.swift; sourceTree = "<group>"; };
 		687B0BF12BCE4A3400CA7C57 /* SwiftDataTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		687B0BFE2BCE501100CA7C57 /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
+		687B0C002BCE527E00CA7C57 /* UseBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseBinding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,10 @@
 		687B0BC82BCE4A3300CA7C57 = {
 			isa = PBXGroup;
 			children = (
+				683D5EE42BCE5D4F008FD603 /* Save.swift */,
+				683D5EE22BCE5685008FD603 /* MyDairy.swift */,
+				687B0C002BCE527E00CA7C57 /* UseBinding.swift */,
+				687B0BFE2BCE501100CA7C57 /* Modal.swift */,
 				687B0BD32BCE4A3300CA7C57 /* SwiftDataTest */,
 				687B0BE42BCE4A3400CA7C57 /* SwiftDataTestTests */,
 				687B0BEE2BCE4A3400CA7C57 /* SwiftDataTestUITests */,
@@ -257,8 +269,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				683D5EE52BCE5D4F008FD603 /* Save.swift in Sources */,
 				687B0BD72BCE4A3300CA7C57 /* ContentView.swift in Sources */,
+				683D5EE32BCE5685008FD603 /* MyDairy.swift in Sources */,
+				687B0BFF2BCE501100CA7C57 /* Modal.swift in Sources */,
 				687B0BD52BCE4A3300CA7C57 /* SwiftDataTestApp.swift in Sources */,
+				687B0C012BCE527E00CA7C57 /* UseBinding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

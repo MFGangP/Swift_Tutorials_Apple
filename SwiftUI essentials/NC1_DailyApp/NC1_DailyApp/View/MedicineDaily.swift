@@ -83,9 +83,9 @@ struct TabBarItem: View {
     @Binding var currentTab: Int
     // 애니메이션에 사용되는 네임스페이스의 ID를 나타냄. 이 네임스페이스는 matchedGeometryEffect에 사용됌.
     let namespace: Namespace.ID
-    // 탭 바 아이템의 이름을 나타냅니다.
+    // 탭 바 아이템의 이름을 나타냄.
     var tabBarItemName: String
-    // 탭의 인덱스를 나타냅니다.
+    // 탭의 인덱스를 나타냄.
     var tab: Int
     
     var body: some View {
@@ -99,7 +99,7 @@ struct TabBarItem: View {
                 if currentTab == tab {
                     Color.black
                         .frame(height: 2)
-                    // 선택된 탭의 경우 밑줄의 애니메이션을 제공하기 위해 사용. 선택된 탭의 밑줄이 움직이면서 나타나도록 만들어준다. 이때, id와 in은 각각 유일한 식별자와 네임스페이스를 나타내다. .properties는 애니메이션 효과가 적용되는 속성을 지정.
+                    // 선택된 탭의 경우 밑줄의 애니메이션을 제공하기 위해 사용. 선택된 탭의 밑줄이 움직이면서 나타나도록 만들어준다. 이때, id와 in은 각각 유일한 식별자와 네임스페이스를 나타낸다. .properties는 애니메이션 효과가 적용되는 속성을 지정.
                         .matchedGeometryEffect(id: "underline",
                                                in: namespace,
                                                properties: .frame)
