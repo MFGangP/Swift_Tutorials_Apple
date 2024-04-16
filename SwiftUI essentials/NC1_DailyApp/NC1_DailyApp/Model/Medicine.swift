@@ -58,9 +58,9 @@ enum ArticulationDirection: String, CaseIterable{
 }
 // 아픈 관절 번호
 enum FingerAndToesNum: String, CaseIterable {
-    case first = "첫번째"
-    case second = "두번째"
-    case third = "세번째"
+    case first = "첫번째 마디"
+    case second = "두번째 마디"
+    case third = "세번째 마디"
 }
 
 

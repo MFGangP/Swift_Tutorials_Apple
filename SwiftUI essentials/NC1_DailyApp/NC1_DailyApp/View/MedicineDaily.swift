@@ -19,6 +19,7 @@
 import SwiftUI
 
 struct MedicineDaily : View {
+
     // 임시 데이터로 Medicine 배열 생성
         @State var medicines: [Medicine] = [
             Medicine(date: Date(),
@@ -32,9 +33,9 @@ struct MedicineDaily : View {
                                                     medicineLeftColor: "Blue",
                                                     medicineRightColor: "Red",
                                                     backgroundColor: "White"),
-                     painDetail: PainDetail(painPart: "Joint",
+                     painDetail: PainDetail(painPart: "손목",
                                             painPartNumber: 1,
-                                            painPartAttendants: "Left",
+                                            painPartAttendants: "왼쪽",
                                             painDegree: 5,
                                             painPeriod: Date())),
             Medicine(date: Date(),
@@ -43,6 +44,22 @@ struct MedicineDaily : View {
                                                     medicineVolume: 2,
                                                     medicineUnit: .gram,
                                                     medicineFrequency: 12,
+                                                    administrationTime: Date(),
+                                                    medicineShape: "Oval",
+                                                    medicineLeftColor: "Yellow",
+                                                    medicineRightColor: "Green",
+                                                    backgroundColor: "Gray"),
+                     painDetail: PainDetail(painPart: "손가락",
+                                            painPartNumber: 2,
+                                            painPartAttendants: "오른쪽",
+                                            painDegree: 7,
+                                            painPeriod: Date())),
+            Medicine(date: Date(),
+                     medicineDetail: MedicineDetail(medicineName: "Medicine 3",
+                                                    medicineType: .capsule,
+                                                    medicineVolume: 3,
+                                                    medicineUnit: .gram,
+                                                    medicineFrequency: 1,
                                                     administrationTime: Date(),
                                                     medicineShape: "Oval",
                                                     medicineLeftColor: "Yellow",
@@ -63,7 +80,7 @@ struct MedicineDaily : View {
             // 탭뷰는 현재 탭 번호를 받는다.
             TabView(selection: self.$currentTab) {
                 View1().tag(0)
-                View2().tag(1)
+                View2(medicines: $medicines).tag(1)
                 // View3().tag(2)
             }
             // 탭뷰 스타일 .naver는 아래 탭 위치를 안보여주고 .always 는 보여준다.
