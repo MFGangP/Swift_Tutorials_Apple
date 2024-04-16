@@ -8,10 +8,9 @@
 import Foundation
 import SwiftUI
 
+
 struct View2: View {
-    
-    let printDays = 100
-    
+    @Binding var medicines : Medicine
     var body: some View {
         VStack{
             // 탭이랑 띄우기 위해서 사용한 스페이서
@@ -41,5 +40,5 @@ struct View2: View {
     }
 }
 #Preview {
-    View2()
+    View2(medicines: Binding<Medicine>)
 }

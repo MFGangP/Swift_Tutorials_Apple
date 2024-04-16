@@ -19,6 +19,42 @@
 import SwiftUI
 
 struct MedicineDaily : View {
+    // 임시 데이터로 Medicine 배열 생성
+        @State var medicines: [Medicine] = [
+            Medicine(date: Date(),
+                     medicineDetail: MedicineDetail(medicineName: "Medicine 1",
+                                                    medicineType: .tablet,
+                                                    medicineVolume: 1,
+                                                    medicineUnit: .gram,
+                                                    medicineFrequency: 8,
+                                                    administrationTime: Date(),
+                                                    medicineShape: "Round",
+                                                    medicineLeftColor: "Blue",
+                                                    medicineRightColor: "Red",
+                                                    backgroundColor: "White"),
+                     painDetail: PainDetail(painPart: "Joint",
+                                            painPartNumber: 1,
+                                            painPartAttendants: "Left",
+                                            painDegree: 5,
+                                            painPeriod: Date())),
+            Medicine(date: Date(),
+                     medicineDetail: MedicineDetail(medicineName: "Medicine 2",
+                                                    medicineType: .capsule,
+                                                    medicineVolume: 2,
+                                                    medicineUnit: .gram,
+                                                    medicineFrequency: 12,
+                                                    administrationTime: Date(),
+                                                    medicineShape: "Oval",
+                                                    medicineLeftColor: "Yellow",
+                                                    medicineRightColor: "Green",
+                                                    backgroundColor: "Gray"),
+                     painDetail: PainDetail(painPart: "Back",
+                                            painPartNumber: 2,
+                                            painPartAttendants: "Right",
+                                            painDegree: 7,
+                                            painPeriod: Date()))
+        ]
+    
     // 현재 탭 번호
     @State var currentTab: Int = 0
     var body: some View {
