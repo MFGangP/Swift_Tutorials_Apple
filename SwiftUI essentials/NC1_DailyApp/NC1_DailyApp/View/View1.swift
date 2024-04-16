@@ -11,6 +11,7 @@ import SwiftUI
 struct CalenderView : UIViewRepresentable {
     // 과거와의 간격 차이를 알기 위해 선언함.
     let interval: DateInterval
+    // @Observable
     
     func makeUIView(context: Context) -> UICalendarView {
         let view = UICalendarView()
@@ -34,7 +35,7 @@ struct View1: View {
                 VStack{
                     // 위쪽 탭이랑 여백 주기 위해
                     Spacer()
-                        .frame(minWidth: 27, maxHeight: 27)
+                        .frame(minWidth: 32, maxHeight: 32)
                     // 캘린더 뷰를 호출 하는데 날짜 사이에 간격이 필요하고 시작 날짜는 먼 과거 끝 날짜는 먼 미래
                     HStack{
                         // 달력 좌측 여백
@@ -105,5 +106,5 @@ struct View1: View {
     } // var body: some View {
 } // struct View1: View {
 #Preview {
-    MedicineDaily()
+    View1()
 }

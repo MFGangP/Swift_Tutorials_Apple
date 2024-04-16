@@ -79,8 +79,8 @@ struct MedicineList {
     let medicineFrequency : UInt8
     let administrationTime : Date
     let medicineShape : String
-    let medicineLeftColor : Int
-    let medicineRightColor : Int
-    let backgroundColor : Int
+    let medicineLeftColor : String
+    let medicineRightColor : String
+    let backgroundColor : String
 }
 
