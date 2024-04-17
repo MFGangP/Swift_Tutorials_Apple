@@ -27,7 +27,9 @@ struct CalenderView : UIViewRepresentable {
 }
 
 struct View1: View {
+    // 데이터 바인딩
     @Binding var medicines : [Medicine]
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: true) {
             HStack{
