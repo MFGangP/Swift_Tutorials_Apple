@@ -12,7 +12,6 @@ struct CalenderView : UIViewRepresentable {
     // 과거와의 간격 차이를 알기 위해 선언함.
     let interval: DateInterval
     // @Observable
-    
     func makeUIView(context: Context) -> UICalendarView {
         let view = UICalendarView()
         // 캘린더 속성을 그래고리안으로 설정.
@@ -28,6 +27,7 @@ struct CalenderView : UIViewRepresentable {
 }
 
 struct View1: View {
+    @Binding var medicines : [Medicine]
     var body: some View {
         ScrollView(.vertical, showsIndicators: true) {
             HStack{
@@ -36,7 +36,7 @@ struct View1: View {
                     // 위쪽 탭이랑 여백 주기 위해
                     Spacer()
                         .frame(minWidth: 32, maxHeight: 32)
-                    // 캘린더 뷰를 호출 하는데 날짜 사이에 간격이 필요하고 시작 날짜는 먼 과거 끝 날짜는 먼 미래
+                    // 캘린더 뷰를 호출 하는데 날짜 사이에 간격이 필요하고 시작 날짜는 먼 과거 끝 날짜는 한 달 뒤
                     HStack{
                         // 달력 좌측 여백
                         Spacer()
@@ -69,11 +69,12 @@ struct View1: View {
                                         .cornerRadius(13)
                                     // 통증 부위 + 복용 사실 + 통증 기간
                                     VStack(alignment: .leading){
-                                        Text("왼쪽 손목 두번째 마디")
+                                        // 배열 -> 배열 -> 요소 -> value 값
+                                        Text("\(medicines[0].painDetail[0].painPart.rawValue) \(medicines[0].painDetail[0].painPartNumber.rawValue) 통증")
                                             .font(Font.custom("SF Pro", size: 24))
                                             .lineSpacing(15)
                                             .foregroundColor(.black);
-                                        Text("소염 진통제 복용")
+                                        Text("\(medicines[0].medicineDetail[0].medicineName) 복용")
                                             .font(Font.custom("SF Pro", size: 16))
                                             .lineSpacing(15)
                                             .foregroundColor(Color.black.opacity(0.6));
@@ -106,5 +107,5 @@ struct View1: View {
     } // var body: some View {
 } // struct View1: View {
 #Preview {
-    View1()
+    MedicineDaily()
 }

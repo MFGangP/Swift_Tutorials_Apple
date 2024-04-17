@@ -11,12 +11,14 @@ import SwiftUI
 
 struct View2: View {
     @Binding var medicines : [Medicine]
+    let CircleSizeInt : CGFloat = 42
     var body: some View {
-        // Date 타입을 받는게 아니였다.
+        // Date 타입을 바로 받는게 아니였다.
         let monthDayFormat = Date.FormatStyle()
             .day()
             .month()
             .locale(Locale(identifier: "ko_KR"))
+        // 요일을 따로 추출하고 싶어서 선언한 상수
         let weekFormat = Date.FormatStyle()
             .weekday()
             .locale(Locale(identifier: "ko_KR"))
@@ -27,7 +29,7 @@ struct View2: View {
             // 탭이랑 띄우기 위해서 사용한 스페이서
             Spacer()
                 .frame(minHeight: 40, maxHeight: 40)
-            Text("\(mondthDayString)")
+            Text("\(mondthDayString)(오늘)")
                 .font(Font.custom("SF Pro", size: 32))
                 .lineSpacing(15)
                 .foregroundColor(.black);
@@ -37,17 +39,27 @@ struct View2: View {
             Spacer()
                 .frame(minWidth: 20, maxWidth: 20, minHeight: 20, maxHeight: 20)
             ScrollView(.horizontal, showsIndicators: false){
-                VStack{
-                    Text("\(weekString)요일")
-                            .font(Font.custom("SF Pro", size: 12))
-                        Circle()
-                            .frame(minWidth: 37, maxWidth: 37, minHeight: 37 , maxHeight: 37)
-                            .foregroundColor(.cyan)
-                }
-            }
+                // 가로로 출력 되어야 하기 때문에
+                HStack{
+                    ForEach(medicines, id: \.id) { medicines in
+                            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/,
+                                   label: {
+                                VStack{
+                                    Text("\(weekString)요일")
+                                        .font(Font.custom("SF Pro", size: 12))
+                                    Circle()
+                                        .frame(minWidth: CircleSizeInt, maxWidth: CircleSizeInt, minHeight: CircleSizeInt , maxHeight: CircleSizeInt)
+                                        .foregroundColor(.cyan)
+                                }// Vstack 끝
+                            }) // Button 끝
+                    }// Foreach 끝
+                    // 투약 관리 기록 부분
+                    
+                }//HStack 끝
+            }// 스크롤 뷰 끝
             // 화면 하단 여백을 띄우기 위한 Spacer()
             Spacer()
-        }
+        }// Vstack 끝
     }
 }
 

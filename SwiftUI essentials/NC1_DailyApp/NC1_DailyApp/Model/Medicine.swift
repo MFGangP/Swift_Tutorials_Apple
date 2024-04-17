@@ -62,6 +62,7 @@ enum FingerAndToesNum: String, CaseIterable {
     case second = "두번째 마디"
     case third = "세번째 마디"
 }
+//
 
 
 //VStack {
@@ -77,8 +78,8 @@ enum FingerAndToesNum: String, CaseIterable {
 struct Medicine {
     var id = UUID()
     var date: Date
-    var medicineDetail: MedicineDetail
-    var painDetail: PainDetail
+    var medicineDetail: [MedicineDetail]
+    var painDetail: [PainDetail]
 }
 
 struct MedicineDetail {
@@ -87,17 +88,18 @@ struct MedicineDetail {
     let medicineVolume : Int // 약 용량
     let medicineUnit : MedicineEnumVolume // 용량 단위
     let medicineFrequency : Int // 복용 주기
-    let administrationTime : Date // 복용 시간
+    let administrationTime : Date // 복용 시간 hh:MM 시간, 분
     let medicineShape : String // 약 생김새
     let medicineLeftColor : String // 약 색깔 - 왼쪽
     let medicineRightColor : String // 약 색깔 - 오른쪽
+    let medicineTakingDate : Date // 약 복용 날짜
     let backgroundColor : String // 약 배경 색깔
 }
 
 struct PainDetail {
-    let painPart : String // 아픈 관절 부위
-    let painPartNumber : Int // 아픈 관절 번호
-    let painPartAttendants : String // 통증 좌우 위치
+    let painPart : ArticulationList // 아픈 관절 부위
+    let painPartNumber : FingerAndToesNum // 아픈 관절 번호
+    let painPartAttendants : ArticulationDirection // 통증 좌우 위치
     let painDegree : Int // 통증 정도
-    let painPeriod : Date // 통증 기간
+    let painDate : Date // 통증 기간
 }
