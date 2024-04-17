@@ -89,7 +89,7 @@ struct MedicineDetail {
     let medicineUnit : MedicineEnumVolume // 용량 단위
     let medicineFrequency : Int // 복용 주기
     let administrationTime : Date // 복용 시간 hh:MM 시간, 분
-    let medicineShape : String // 약 생김새
+    let medicineShape : String // 약 생김새 - 이미지
     let medicineLeftColor : String // 약 색깔 - 왼쪽
     let medicineRightColor : String // 약 색깔 - 오른쪽
     let medicineTakingDate : Date // 약 복용 날짜
