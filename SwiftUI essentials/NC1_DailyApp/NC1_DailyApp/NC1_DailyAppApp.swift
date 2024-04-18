@@ -11,7 +11,6 @@ import SwiftUI
 struct NC1_DailyAppApp: App {
     var body: some Scene {
         WindowGroup {
-            MedicineDaily()
         }
     }
 }

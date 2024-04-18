@@ -3,42 +3,51 @@ import SwiftUI
 
 struct View2: View {
     
+//    @Binding var dateArray : [Date]
+//    @Binding var dateIntArray : [Int]
     @Binding var medicines : [Medicine]
-    @State private var selectedDate = Date()
+    @Binding var DateSetArray : DateSetArray
+//    @Binding var ArrayDateAndInt : [(Date, Int)]
+    @State private var todayDate = Date()
     private let calendar = Calendar.current
-    
     let CircleSizeInt : CGFloat = 42 // 원 크기
     // 제일 처음 보여주는 개체
-    @State var indexBasic: Int = 5
-    // 바인딩 된 Int 형태의 배열
-    @State var items: [Int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    @Binding var indexBasic: Int
     
-    
-    
-    var body: some View {
-        VStack{
-            let myDateComponents = DateComponents(year: 2022, month: 3, day: 01)
-            let startDate = Calendar.current.date(from: myDateComponents)!
-            
-            let offsetComps = Calendar.current.dateComponents([.year,.month,.day], from: startDate, to: Date())
-            
-            if case let (y?, m?, d?) = (offsetComps.year, offsetComps.month, offsetComps.day) {
-                Text("\(y)년 \(m)월 \(d)일 만큼 차이남")
-            }
-            
-            // 바인딩 된 Int형, items = 바인딩 된 배열 형태
-            SwiftUIWheelPicker($indexBasic, items: $items) { value in
-                GeometryReader { reader in
-                    Text("\(value)")
-                        .frame(width: reader.size.width, height: reader.size.height, alignment: .center)
+   var body: some View {
+        ScrollView{
+            Spacer()
+                // 위쪽 여백
+                .frame(height: 60)
+            // 제일 처음 보여주는 개체 - 바인딩 된 Int형, 전체 요소 items = 바인딩 된 배열 형태
+            SwiftUIWheelPicker($indexBasic, items: DateSetArray.dayOfWeek) { value in
+                    VStack{
+                        Text("\(value)")
+                                .frame(width: 45, height: 14, alignment: .center)
+                        Circle()
+                            .fill(Color.gray)
+                            .frame(width: 45 , height: 45)
                 }
             }
-            .frame(width: 371, height: 40, alignment: .center)
+            .frame(width: 371, height: 30, alignment: .center)
             .padding(.top, 10)
+        }.onAppear(){
+            let DayFormatter = DateFormatter()
+            DayFormatter.dateFormat = "yyyy-MM-dd"
+//            let _ = print(DateSetArray.dateArray)
+//            let _ = print(todayDate)
+            if let foundIndex = DateSetArray.dateArray.firstIndex(where: { $0 == DayFormatter.string(from: Date()) }) {
+                indexBasic = foundIndex
+            }
+
+            // let _ = print(Date())
+            // let _ = print(indexBasic)
+            // let _ = print(DateSetArray.dateArray.count)
         }
+       Spacer()
     }
 }
 
 #Preview {
-    MedicineDaily()
+    MedicineDaily(DateSetArray: DateSetArray(dateArray: [], dayOfWeek: [], monthAndDay: []), indexBasic: 1157)
 }

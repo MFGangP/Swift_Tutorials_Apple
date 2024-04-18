@@ -112,3 +112,10 @@ struct PainDetail {
     var painDegree : PainDegree // 통증 정도
     var painDate : Date // 통증 기간
 }
+
+struct DateSetArray {
+    var id = UUID()
+    var dateArray : [String]
+    var dayOfWeek : [String]
+    var monthAndDay : [String]
+}

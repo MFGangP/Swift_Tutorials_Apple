@@ -19,40 +19,44 @@
 import SwiftUI
 
 struct MedicineDaily : View {
+    
     // 임시 데이터로 Medicine 배열 생성
     @State var medicines: [Medicine] = [
-
-            Medicine(date: Date(),
-                     medicineDetail: [
-                        MedicineDetail(medicineName: "Medicine 1",
-                                                    medicineType: .tablet,
-                                                    medicineVolume: 1,
-                                                    medicineUnit: .gram,
-                                                    medicineFrequency: 8,
-                                                    administrationTime: Date(),
-                                                    medicineShape: "Round",
-                                                    medicineLeftColor: "Blue",
-                                                    medicineRightColor: "Red",
-                                                    medicineTakingDate : Date()-1,
-                                                    backgroundColor: "White")],
-                     painDetail: [
-                        PainDetail(painPart: ArticulationList.wrist,
-                                   painPartNumber: FingerAndToesNum.first,
-                                   painPartAttendants: ArticulationDirection.left,
-                                   painDegree: PainDegree.two,
-                                            painDate: Date()-1)]),
-        ]// 배열 끝
-
+        Medicine(date: Date(),
+                 medicineDetail: [
+                    MedicineDetail(medicineName: "Medicine 1",
+                                   medicineType: .tablet,
+                                   medicineVolume: 1,
+                                   medicineUnit: .gram,
+                                   medicineFrequency: 8,
+                                   administrationTime: Date(),
+                                   medicineShape: "Round",
+                                   medicineLeftColor: "Blue",
+                                   medicineRightColor: "Red",
+                                   medicineTakingDate : Date()-1,
+                                   backgroundColor: "White")],
+                 painDetail: [
+                    PainDetail(painPart: ArticulationList.wrist,
+                               painPartNumber: FingerAndToesNum.first,
+                               painPartAttendants: ArticulationDirection.left,
+                               painDegree: PainDegree.two,
+                               painDate: Date()-1)]),
+    ]// 배열 끝
+    //@State var DateArray : DateArray = DateArray(dateArray: [Date], dayOfWeek: [], monthAndDay: [])
+    @State var DateSetArray : DateSetArray
+//    @State var dateArray : [Date] = []
+//    @State var dateIntArray : [Int] = []
+    @State var ArrayDateAndInt : [(Date, Int)] = []
     // 현재 탭 번호
     @State var currentTab: Int = 0
-    @State private var allDateArray: [String] = []
+    @State var indexBasic: Int
     var body: some View {
         // Z 스텍으로 뷰 위에 띄운다.
         ZStack(alignment: .top) {
             // 탭뷰는 현재 탭 번호를 받는다.
             TabView(selection: self.$currentTab) {
-                View1(medicines: $medicines).tag(0)
-                View2(medicines: $medicines).tag(1)
+                View1(medicines: $medicines, DateSetArray: $DateSetArray).tag(0)
+                View2(medicines: $medicines, DateSetArray: $DateSetArray, indexBasic: $indexBasic).tag(1)
             }
             // 탭뷰 스타일 .naver는 아래 탭 위치를 안보여주고 .always 는 보여준다.
             .tabViewStyle(.page(indexDisplayMode: .always))
@@ -61,10 +65,16 @@ struct MedicineDaily : View {
             TabBarView(currentTab: self.$currentTab)
         }.onAppear(){
             // 날짜를 문자열로 바꿔주기 위한 작업
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            // 2021-04-18 06:51:12 +0000 3년전
-            // 2024-06-18 06:51:12 +0000 2달 뒤
+            let DayFormatter = DateFormatter()
+            DayFormatter.dateFormat = "yyyy-MM-dd"
+            // 월 일 표시 포맷
+            let monthAndDayFormatter = DateFormatter()
+            monthAndDayFormatter.dateFormat = "MM월 dd일"
+            monthAndDayFormatter.locale = Locale(identifier:"ko_KR")
+            // 요일 표시 포맷
+            let dayOfWeekFormatter = DateFormatter()
+            dayOfWeekFormatter.dateFormat = "EEEE"
+            dayOfWeekFormatter.locale = Locale(identifier:"ko_KR")
             // 현재 날짜를 불러올 상수
             let today = Date()
             // 3년전 날짜 구하는 형식
@@ -74,12 +84,32 @@ struct MedicineDaily : View {
             let twoMonthAfter = Calendar.current.date(byAdding:.month, value: 2, to: today)
             // let _ = print("\(twoMonthAfter!.description)")
             // 비교하기 위해 시작 지점과 끝 지점 계산
-            let startDate = dateFormatter.date(from: dateFormatter.string(from: threeYearsAgo!))
-            let endDate = dateFormatter.date(from: dateFormatter.string(from: twoMonthAfter!))
-            let interval = endDate?.timeIntervalSince(startDate!)
+            // 2021-04-18 06:51:12 +0000 3년전
+            let beforeDate = DayFormatter.date(from: DayFormatter.string(from: threeYearsAgo!))
+            // 2024-06-18 06:51:12 +0000 2달 뒤
+            let afterDate = DayFormatter.date(from: DayFormatter.string(from: twoMonthAfter!))
+            let interval = afterDate?.timeIntervalSince(beforeDate!)
             // 하루 기준으로 표시한 날짜 차이 - 배열의 크기가 되어야함
             let daysInterval = Int(interval! / 86400) // 1157
-            let _ = print(endDate)
+            // let _ = print(afterDate)
+            // 변수 따로 만들어서 데이터를 갱신
+            var currentDate = Calendar.current.date(byAdding: .year, value: -3, to: today)!
+            // 제일 과거 날짜를 기준으로 하루씩 늘려가면서 배열에 추가
+            for _ in 0..<daysInterval {
+                // Date 배열 저장
+                DateSetArray.dateArray.append(DayFormatter.string(from: currentDate))
+                // let _ = print(DateSetArray.dateArray)
+                // MM월dd 로 데이터 변환
+                DateSetArray.dayOfWeek.append(dayOfWeekFormatter.string(from: currentDate))
+                // let _ = print(DateSetArray.dayOfWeek)
+                DateSetArray.monthAndDay.append(monthAndDayFormatter.string(from: currentDate))
+                // 하루 씩 늘려가면서 날짜를 증가시킴
+                currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)!
+            }
+//            let _ = print("\(daysInterval)")
+//            let _ = print("\(DateSetArray.dateArray)")
+//            let _ = print("\(threeYearsAgo)")
+//            let _ = print("\(twoMonthAfter)")
         }
     }
 }
@@ -122,7 +152,7 @@ struct TabBarView: View {
         // SafeArea 없이 전부 쓰거나 여유를 주고 싶을 때
         .edgesIgnoringSafeArea(.all)
     }
-
+    
 }
 struct TabBarItem: View {
     // 현재 선택된 탭의 인덱스를 나타내는 currentTab 변수를 바인딩으로 선언. 이렇게 하면 부모 뷰에서 해당 변수를 업데이트할 수 있다.
@@ -159,14 +189,8 @@ struct TabBarItem: View {
         .buttonStyle(.plain)
     }
 }
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        MedicineDaily()
-    }
-}
 // lazy 변수는 처음 사용되기 전까지는 연산이 되지 않는다
 
 #Preview {
-    MedicineDaily()
+    MedicineDaily(DateSetArray: DateSetArray(dateArray: [], dayOfWeek: [], monthAndDay: []), indexBasic: 1156)
 }

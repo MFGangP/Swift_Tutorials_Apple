@@ -29,7 +29,7 @@ struct CalenderView : UIViewRepresentable {
 struct View1: View {
     // 데이터 바인딩
     @Binding var medicines : [Medicine]
-    
+    @Binding var DateSetArray : DateSetArray
     var body: some View {
         ScrollView(.vertical, showsIndicators: true) {
             HStack{
@@ -109,5 +109,5 @@ struct View1: View {
     } // var body: some View {
 } // struct View1: View {
 #Preview {
-    MedicineDaily()
+    MedicineDaily(DateSetArray: DateSetArray(dateArray: [], dayOfWeek: [], monthAndDay: []), indexBasic: 1157)
 }
