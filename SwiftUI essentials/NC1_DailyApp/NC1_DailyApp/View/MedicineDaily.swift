@@ -28,7 +28,7 @@ struct MedicineDaily : View {
 //                            painDegree: 5,
 //                            painDate: Date()),
 //     ]),
-            Medicine(date: Date(),
+        Medicine(Index : 0 ,date: Date(),
                      medicineDetail: [
                         MedicineDetail(medicineName: "Medicine 1",
                                                     medicineType: .tablet,
@@ -47,7 +47,7 @@ struct MedicineDaily : View {
                                    painPartAttendants: ArticulationDirection.left,
                                    painDegree: PainDegree.two,
                                             painDate: Date()-1)]),
-            Medicine(date: Date(),
+            Medicine(Index : 1 ,date: Date(),
                      medicineDetail: [
                         MedicineDetail(medicineName: "Medicine 2",
                                                     medicineType: .capsule,

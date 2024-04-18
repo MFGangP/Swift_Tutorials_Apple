@@ -56,9 +56,14 @@ public struct SwiftUIWheelPicker<Content: View, Item>: View {
         // SwiftUI에서 사용되는 뷰 컨테이너
         GeometryReader { geometry in
             // 내부적으로 여러 번의 렌더링을 수행하여 자식 뷰에 대한 정보를 제공. 이는 자식 뷰가 부모 뷰의 크기 및 레이아웃에 따라 동적으로 조정될 수 있도록 함.
+            //GeometryReader는 Container View이기 때문에, 그 속에 집어넣을 Content를 클로저로 받는다. 우리에게 친숙한 VStack, HStack같은 친구들도 선언과 함께 클로저를 사용해주니까, 똑같다고 생각할 수 있다. 하지만 여기서 받는 클로저의 타입은 () -> Content가 아니라, (GeometryProxy) -> Content다. 따라서 클로저 시작 부분에 {geometry in ... } 처럼 GeometryProxy 타입의 argument를 표기해준다.
+            // GeometryReader 는 상위의 View에게 할당받은 크기의 프레임 안에서 자유롭게 개체를 배치 할수 있게 도와주는 클로저
             ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
                 HStack(spacing: 0) {
+                    // Foreach 0에서 items의 wrappedValue의 갯수만큼 반복
+                    // id:는 값 자체를 의미 여기서는 items.wrappedValue.count 값 자체
                     ForEach(0..<items.wrappedValue.count, id: \.self) { position in
+                        // postion 안에는 0 부터 items.wrappedValue.count 값이 들어감
                         drawContentView(position, geometry: geometry)
                     }
 //                    ForEach(items.wrappedValue.indices) { position in
@@ -153,12 +158,13 @@ public struct SwiftUIWheelPicker<Content: View, Item>: View {
         newSelf.onValueChanged = callback
         return newSelf
     }
-    
+    // position은 Int값 geometry는 GeometryProxy를 받고 View 형태로 값을 반환하는 drawContentView 함수
     private func drawContentView(_ position: Int, geometry: GeometryProxy) -> some View {
-        var sizeResult: CGFloat = 1
-        var alphaResult: Double = 1
-        
+        var sizeResult: CGFloat = 1 // 변수
+        var alphaResult: Double = 1 // 변수
+        // sizeFactor가 1.0이 아니거나 alphaFactor이 1.0이 아닐 경우
         if sizeFactor != 1.0 || alphaFactor != 1.0 {
+            // maxRange는 geometry의
             let maxRange = floor(maxVisible(geometry) / 2.0)
             let offset = translation / self.calcContentWidth(geometry, option: contentWidthOption)
             let newIndex = CGFloat(self.position) - offset
@@ -188,16 +194,20 @@ public struct SwiftUIWheelPicker<Content: View, Item>: View {
             .opacity(alphaResult)
             .frame(width: self.calcContentWidth(geometry, option: contentWidthOption), alignment: .center)
     }
-    
+    // 함수 maxVisible은 GeometryProxy값을 받고 CGFloat으로 값을 반환한다.
     private func maxVisible(_ geometry: GeometryProxy) -> CGFloat {
+        // 상수 visibleCount는 geometry.size.width(가로 값)에
         let visibleCount = geometry.size.width / self.calcContentWidth(geometry, option: contentWidthOption)
         return min(visibleCount, CGFloat(self.items.wrappedValue.count))
     }
-    
+    // 함수 calcContentWidth는 geometry에 GeometryProxy값, option에 WidthOption 값을 받아서 CGFloat 값으로 반환한다.
     private func calcContentWidth(_ geometry: GeometryProxy, option: WidthOption) -> CGFloat {
+        // option 값은 3개의 상황을 가진다.
         switch option {
+            // .VisibleCount일 때는 count 값을 가지고 geometry.size.width[가로 크기] / CGFloat(count) 값을 리턴한다.
         case .VisibleCount(let count):
             return geometry.size.width / CGFloat(count)
+            // .Fixed 일 때는 
         case .Fixed(let width):
             return width
         case .Ratio(let ratio):

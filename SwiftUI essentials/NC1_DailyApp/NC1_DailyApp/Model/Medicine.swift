@@ -84,6 +84,7 @@ enum PainDegree : Int, CaseIterable {
 
 struct Medicine {
     var id = UUID()
+    var Index : Int
     var date: Date
     var medicineDetail: [MedicineDetail]
     var painDetail: [PainDetail]
@@ -97,11 +98,11 @@ struct MedicineDetail {
     var medicineUnit : MedicineEnumVolume // 용량 단위 (ml, g, mg...)
     var medicineFrequency : Int // 복용 주기 - 1일 ~ 99일
     var administrationTime : Date // 복용 시간 hh:MM 시간, 분
-    var medicineShape : String // 약 생김새 - 이미지
-    var medicineLeftColor : String // 약 색깔 - 왼쪽
-    var medicineRightColor : String // 약 색깔 - 오른쪽
+    var medicineShape : String // 약 생김새 - 이미지 - 블랜더
+    var medicineLeftColor : String // 약 색깔 - 왼쪽 - 블랜더
+    var medicineRightColor : String // 약 색깔 - 오른쪽 - 블랜더
     var medicineTakingDate : Date // 약 복용 날짜
-    var backgroundColor : String // 약 배경 색깔
+    var backgroundColor : String // 약 배경 색깔 - 블랜더
 }
 
 struct PainDetail {
