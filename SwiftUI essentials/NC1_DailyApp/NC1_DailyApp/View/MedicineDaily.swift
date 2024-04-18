@@ -21,14 +21,8 @@ import SwiftUI
 struct MedicineDaily : View {
     // 임시 데이터로 Medicine 배열 생성
     @State var medicines: [Medicine] = [
-            //painDetail: [
-//            PainDetail(painPart: "손목",
-//                            painPartNumber: 1,
-//                            painPartAttendants: "왼쪽",
-//                            painDegree: 5,
-//                            painDate: Date()),
-//     ]),
-        Medicine(Index : 0 ,date: Date(),
+
+            Medicine(date: Date(),
                      medicineDetail: [
                         MedicineDetail(medicineName: "Medicine 1",
                                                     medicineType: .tablet,
@@ -47,183 +41,11 @@ struct MedicineDaily : View {
                                    painPartAttendants: ArticulationDirection.left,
                                    painDegree: PainDegree.two,
                                             painDate: Date()-1)]),
-            Medicine(Index : 1 ,date: Date(),
-                     medicineDetail: [
-                        MedicineDetail(medicineName: "Medicine 2",
-                                                    medicineType: .capsule,
-                                                    medicineVolume: 2,
-                                                    medicineUnit: .gram,
-                                                    medicineFrequency: 12,
-                                                    administrationTime: Date(),
-                                                    medicineShape: "Oval",
-                                                    medicineLeftColor: "Yellow",
-                                                    medicineRightColor: "Green",
-                                                    medicineTakingDate : Date()-2,
-                                                    backgroundColor: "Gray")],
-                     painDetail: [
-                        PainDetail(painPart: ArticulationList.finger,
-                                            painPartNumber: FingerAndToesNum.second,
-                                            painPartAttendants: ArticulationDirection.right,
-                                            painDegree: PainDegree.three,
-                                            painDate: Date()-2)]),
-            Medicine(date: Date(),
-                     medicineDetail: [
-                        MedicineDetail(medicineName: "Medicine 3",
-                                                    medicineType: .capsule,
-                                                    medicineVolume: 3,
-                                                    medicineUnit: .gram,
-                                                    medicineFrequency: 1,
-                                                    administrationTime: Date(),
-                                                    medicineShape: "Oval",
-                                                    medicineLeftColor: "Yellow",
-                                                    medicineRightColor: "Green",
-                                                    medicineTakingDate : Date()-3,
-                                                    backgroundColor: "Gray")],
-                     painDetail: [
-                        PainDetail(painPart: ArticulationList.finger,
-                                            painPartNumber: FingerAndToesNum.third,
-                                            painPartAttendants: ArticulationDirection.left,
-                                            painDegree: PainDegree.one,
-                                            painDate: Date()-3)]),
-            Medicine(date: Date(),
-                     medicineDetail: [
-                        MedicineDetail(medicineName: "Medicine 3",
-                                                    medicineType: .capsule,
-                                                    medicineVolume: 3,
-                                                    medicineUnit: .gram,
-                                                    medicineFrequency: 1,
-                                                    administrationTime: Date(),
-                                                    medicineShape: "Oval",
-                                                    medicineLeftColor: "Yellow",
-                                                    medicineRightColor: "Green",
-                                                    medicineTakingDate : Date()-4,
-                                                    backgroundColor: "Gray")],
-                     painDetail: [
-                        PainDetail(painPart: ArticulationList.finger,
-                                            painPartNumber: FingerAndToesNum.third,
-                                            painPartAttendants: ArticulationDirection.left,
-                                            painDegree: PainDegree.one,
-                                            painDate: Date()-4)]),
-            Medicine(date: Date(),
-                     medicineDetail: [
-                        MedicineDetail(medicineName: "Medicine 3",
-                                                    medicineType: .capsule,
-                                                    medicineVolume: 3,
-                                                    medicineUnit: .gram,
-                                                    medicineFrequency: 1,
-                                                    administrationTime: Date(),
-                                                    medicineShape: "Oval",
-                                                    medicineLeftColor: "Yellow",
-                                                    medicineRightColor: "Green",
-                                                    medicineTakingDate : Date()-5,
-                                                    backgroundColor: "Gray")],
-                     painDetail: [
-                        PainDetail(painPart: ArticulationList.finger,
-                                            painPartNumber: FingerAndToesNum.third,
-                                            painPartAttendants: ArticulationDirection.left,
-                                            painDegree: PainDegree.one,
-                                            painDate: Date()-5)]),
-            Medicine(date: Date(),
-                     medicineDetail: [
-                        MedicineDetail(medicineName: "Medicine 3",
-                                                    medicineType: .capsule,
-                                                    medicineVolume: 3,
-                                                    medicineUnit: .gram,
-                                                    medicineFrequency: 1,
-                                                    administrationTime: Date(),
-                                                    medicineShape: "Oval",
-                                                    medicineLeftColor: "Yellow",
-                                                    medicineRightColor: "Green",
-                                                    medicineTakingDate : Date()-6,
-                                                    backgroundColor: "Gray")],
-                     painDetail: [
-                        PainDetail(painPart: ArticulationList.finger,
-                                            painPartNumber: FingerAndToesNum.third,
-                                            painPartAttendants: ArticulationDirection.left,
-                                            painDegree: PainDegree.one,
-                                            painDate: Date()-6)]),
-            Medicine(date: Date(),
-                     medicineDetail: [
-                        MedicineDetail(medicineName: "Medicine 3",
-                                                    medicineType: .capsule,
-                                                    medicineVolume: 3,
-                                                    medicineUnit: .gram,
-                                                    medicineFrequency: 1,
-                                                    administrationTime: Date(),
-                                                    medicineShape: "Oval",
-                                                    medicineLeftColor: "Yellow",
-                                                    medicineRightColor: "Green",
-                                                    medicineTakingDate : Date()-7,
-                                                    backgroundColor: "Gray")],
-                     painDetail: [
-                        PainDetail(painPart: ArticulationList.finger,
-                                            painPartNumber: FingerAndToesNum.third,
-                                            painPartAttendants: ArticulationDirection.left,
-                                            painDegree: PainDegree.one,
-                                            painDate: Date()-7)]),
-            Medicine(date: Date(),
-                     medicineDetail: [
-                        MedicineDetail(medicineName: "Medicine 3",
-                                                    medicineType: .capsule,
-                                                    medicineVolume: 3,
-                                                    medicineUnit: .gram,
-                                                    medicineFrequency: 1,
-                                                    administrationTime: Date(),
-                                                    medicineShape: "Oval",
-                                                    medicineLeftColor: "Yellow",
-                                                    medicineRightColor: "Green",
-                                                    medicineTakingDate : Date()-8,
-                                                    backgroundColor: "Gray")],
-                     painDetail: [
-                        PainDetail(painPart: ArticulationList.finger,
-                                            painPartNumber: FingerAndToesNum.third,
-                                            painPartAttendants: ArticulationDirection.left,
-                                            painDegree: PainDegree.one,
-                                            painDate: Date()-8)]),
-            Medicine(date: Date(),
-                     medicineDetail: [
-                        MedicineDetail(medicineName: "Medicine 3",
-                                                    medicineType: .capsule,
-                                                    medicineVolume: 3,
-                                                    medicineUnit: .gram,
-                                                    medicineFrequency: 1,
-                                                    administrationTime: Date(),
-                                                    medicineShape: "Oval",
-                                                    medicineLeftColor: "Yellow",
-                                                    medicineRightColor: "Green",
-                                                    medicineTakingDate : Date()-9,
-                                                    backgroundColor: "Gray")],
-                     painDetail: [
-                        PainDetail(painPart: ArticulationList.finger,
-                                            painPartNumber: FingerAndToesNum.third,
-                                            painPartAttendants: ArticulationDirection.left,
-                                            painDegree: PainDegree.one,
-                                            painDate: Date()-9)]),
-            Medicine(date: Date(),
-                     medicineDetail: [
-                        MedicineDetail(medicineName: "Medicine 3",
-                                                    medicineType: .capsule,
-                                                    medicineVolume: 3,
-                                                    medicineUnit: .gram,
-                                                    medicineFrequency: 1,
-                                                    administrationTime: Date(),
-                                                    medicineShape: "Oval",
-                                                    medicineLeftColor: "Yellow",
-                                                    medicineRightColor: "Green",
-                                                    medicineTakingDate : Date()-10,
-                                                    backgroundColor: "Gray")],
-                     painDetail: [
-                        PainDetail(painPart: ArticulationList.finger,
-                                            painPartNumber: FingerAndToesNum.third,
-                                            painPartAttendants: ArticulationDirection.left,
-                                            painDegree: PainDegree.one,
-                                            painDate: Date()-10)]),
         ]// 배열 끝
 
     // 현재 탭 번호
     @State var currentTab: Int = 0
-    // 현재 날짜를 불러올 상수
-
+    @State private var allDateArray: [String] = []
     var body: some View {
         // Z 스텍으로 뷰 위에 띄운다.
         ZStack(alignment: .top) {
@@ -237,6 +59,27 @@ struct MedicineDaily : View {
             // SafeArea 없이 전부 쓰거나 여유를 주고 싶을 때
             .edgesIgnoringSafeArea(.all)
             TabBarView(currentTab: self.$currentTab)
+        }.onAppear(){
+            // 날짜를 문자열로 바꿔주기 위한 작업
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            // 2021-04-18 06:51:12 +0000 3년전
+            // 2024-06-18 06:51:12 +0000 2달 뒤
+            // 현재 날짜를 불러올 상수
+            let today = Date()
+            // 3년전 날짜 구하는 형식
+            let threeYearsAgo = Calendar.current.date(byAdding:.year, value: -3, to: today)
+            // let _ = print("\(threeYearsAgo!.description)")
+            // 2달 뒤 날짜 구하는 형식
+            let twoMonthAfter = Calendar.current.date(byAdding:.month, value: 2, to: today)
+            // let _ = print("\(twoMonthAfter!.description)")
+            // 비교하기 위해 시작 지점과 끝 지점 계산
+            let startDate = dateFormatter.date(from: dateFormatter.string(from: threeYearsAgo!))
+            let endDate = dateFormatter.date(from: dateFormatter.string(from: twoMonthAfter!))
+            let interval = endDate?.timeIntervalSince(startDate!)
+            // 하루 기준으로 표시한 날짜 차이 - 배열의 크기가 되어야함
+            let daysInterval = Int(interval! / 86400) // 1157
+            let _ = print(endDate)
         }
     }
 }
@@ -250,7 +93,7 @@ struct TabBarView: View {
         
         // 좌우로 넘기기 위한 스크롤 뷰
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 80) {
+            HStack(spacing: 70) {
                 // 왼쪽 여백
                 Spacer()
                 // zip 함수를 사용하여 tabBarOptions 배열의 인덱스와 요소를 묶어 튜플의 배열을 생성합니다. 이렇게 함으로써 각 요소와 해당하는 인덱스를 함께 사용할 수 있다.

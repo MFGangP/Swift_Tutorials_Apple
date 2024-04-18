@@ -8,8 +8,9 @@ struct View2: View {
     private let calendar = Calendar.current
     
     let CircleSizeInt : CGFloat = 42 // 원 크기
-    
+    // 제일 처음 보여주는 개체
     @State var indexBasic: Int = 5
+    // 바인딩 된 Int 형태의 배열
     @State var items: [Int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     
     
@@ -26,7 +27,7 @@ struct View2: View {
             }
             
             // 바인딩 된 Int형, items = 바인딩 된 배열 형태
-            SwiftUIWheelPicker($indexBasic, items: $medicines.medicineDetail.wrappedValue) { value in
+            SwiftUIWheelPicker($indexBasic, items: $items) { value in
                 GeometryReader { reader in
                     Text("\(value)")
                         .frame(width: reader.size.width, height: reader.size.height, alignment: .center)

@@ -84,7 +84,6 @@ enum PainDegree : Int, CaseIterable {
 
 struct Medicine {
     var id = UUID()
-    var Index : Int
     var date: Date
     var medicineDetail: [MedicineDetail]
     var painDetail: [PainDetail]
