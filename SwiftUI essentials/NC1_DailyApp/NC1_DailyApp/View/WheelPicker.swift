@@ -17,33 +17,45 @@ public struct SwiftUIWheelPicker<Content: View, Item>: View {
     private var items: Binding<[Item]> // items는 바인딩 되어있는 아이템 배열 값을 가진다.
     let contentBuilder: (Item) -> Content // contentBuilder는 Item을 파라미터로 가지고 Content를 리턴하는 클로저
     @Binding var position: Int // 바인딩된 position 변수 Int형
-    @GestureState private var translation: CGFloat = 0 
+    @GestureState private var translation: CGFloat = 0 // @GestureState는 SwiftUI에서 제스처와 관련된 상태를 관리하는 데 사용되는 속성 래퍼. 이 속성은 제스처와 상호 작용하는 동안 상태를 추적하고, 해당 상태가 변경될 때 뷰를 다시 렌더링한다.
+    // 속성 래퍼(Property Wrapper) = 속성 래퍼는 속성의 값을 제어하고 해당 속성이 속한 형식의 동작을 정의하는 데 사용.
     private var contentWidthOption: WidthOption = .VisibleCount(5)
     private var sizeFactor: CGFloat = 1
     private var alphaFactor: Double = 1
-    private var edgeLeftView: AnyView? = nil
+    private var edgeLeftView: AnyView? = nil // edgeLeftView는 AnyView타입의 옵셔널 값이 없으면 nil 있을 수도 없을 수도
     private var edgeLeftWidth: WidthOption? = nil
     private var edgeRightView: AnyView? = nil
     private var edgeRightWidth: WidthOption? = nil
     private var centerView: AnyView? = nil
     private var centerViewWidth: WidthOption? = nil
     //private var isInfinite: Bool = false
-    private var onValueChanged: ((Item) -> Void)? = nil
+    private var onValueChanged: ((Item) -> Void)? = nil // onValueChanged는 Item을 변수로 받고 Void를 리턴하는 closure 함수인데 옵셔널이라 기본 값은 nil
     
     public init(_ position: Binding<Int>, items: Binding<[Item]>, @ViewBuilder content: @escaping (Item) -> Content) {
         self.items = items
+        // items 값은 Binding<[Item]>
         self._position = position
+        // _position 값은 Binding<Int>
         self.contentBuilder = content
-    }
+        // SwiftUIWheelPicker.contentBuilder 값에 content 클로저에서 반환받은 Content 값을 배정
+    }// 초기화 함수, 생성자 init
+    //_ (얘는 이름이 없다)position은 Int 값을 바인딩 하는데 사용 된다. 바인딩은 값을 저장하고 해당 값이 바뀔 때 뷰를 업데이트 하는데 사용 된다.
+    // items은 배열 Item 값을 바인딩 하는데 사용된다.
+    // @ViewBuilder는 여러 개의 뷰를 하나로 만드는데 사용 된다.
+    // 클로져 함수의 다른 형태 Item을 인자로 받아서 Content 타입의 뷰를 반환함
+    // @escaping 속성은 클로저가 함수를 벗어난 후에도 사용될 수 있음을 나타낸다.
     
     public init(_ position: Binding<Int>, items: [Item], @ViewBuilder content: @escaping (Item) -> Content) {
-        self.items = Binding.constant(items)
+        self.items = Binding.constant(items)// 바인딩 된 값은 변경 가능하지만 constant를 사용해서 변경이 불가능한 배열로 생성
         self._position = position
         self.contentBuilder = content
     }
-    
+    // items 의 값이 변경 가능한 Binding 값이 아닌 일반 배열
+
     public var body: some View {
+        // SwiftUI에서 사용되는 뷰 컨테이너
         GeometryReader { geometry in
+            // 내부적으로 여러 번의 렌더링을 수행하여 자식 뷰에 대한 정보를 제공. 이는 자식 뷰가 부모 뷰의 크기 및 레이아웃에 따라 동적으로 조정될 수 있도록 함.
             ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
                 HStack(spacing: 0) {
                     ForEach(0..<items.wrappedValue.count, id: \.self) { position in
