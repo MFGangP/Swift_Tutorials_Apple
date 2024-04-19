@@ -106,10 +106,10 @@ struct MedicineDaily : View {
                 // 하루 씩 늘려가면서 날짜를 증가시킴
                 currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)!
             }
-//            let _ = print("\(daysInterval)")
-//            let _ = print("\(DateSetArray.dateArray)")
-//            let _ = print("\(threeYearsAgo)")
-//            let _ = print("\(twoMonthAfter)")
+            let _ = print("\(daysInterval)")
+            let _ = print("\(DateSetArray.dateArray)")
+            let _ = print("\(threeYearsAgo)")
+            let _ = print("\(twoMonthAfter)")
         }
     }
 }
