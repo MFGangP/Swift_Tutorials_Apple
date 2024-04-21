@@ -7,6 +7,7 @@
 import SwiftUI
 
 public enum WidthOption {
+    // 세개 타입의 값을 가질 수 있다.
     case VisibleCount(Int)
     case Fixed(CGFloat)
     case Ratio(CGFloat)
@@ -164,7 +165,7 @@ public struct SwiftUIWheelPicker<Content: View, Item>: View {
         var alphaResult: Double = 1 // 변수
         // sizeFactor가 1.0이 아니거나 alphaFactor이 1.0이 아닐 경우
         if sizeFactor != 1.0 || alphaFactor != 1.0 {
-            // maxRange는 geometry의
+            // maxRange는
             let maxRange = floor(maxVisible(geometry) / 2.0)
             let offset = translation / self.calcContentWidth(geometry, option: contentWidthOption)
             let newIndex = CGFloat(self.position) - offset
@@ -201,6 +202,10 @@ public struct SwiftUIWheelPicker<Content: View, Item>: View {
         return min(visibleCount, CGFloat(self.items.wrappedValue.count))
     }
     // 함수 calcContentWidth는 geometry에 GeometryProxy값, option에 WidthOption 값을 받아서 CGFloat 값으로 반환한다.
+    // WidthOption = 5 (Int)
+    //case VisibleCount(Int)
+    //case Fixed(CGFloat)
+    //case Ratio(CGFloat)
     private func calcContentWidth(_ geometry: GeometryProxy, option: WidthOption) -> CGFloat {
         // option 값은 3개의 상황을 가진다.
         switch option {
@@ -209,6 +214,7 @@ public struct SwiftUIWheelPicker<Content: View, Item>: View {
             return geometry.size.width / CGFloat(count)
             // .Fixed 일 때는 
         case .Fixed(let width):
+            // .Ratio 일 때
             return width
         case .Ratio(let ratio):
             return geometry.size.width * ratio

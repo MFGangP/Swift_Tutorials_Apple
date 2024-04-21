@@ -29,7 +29,8 @@ struct MedicineDaily : View {
                                    medicineVolume: 1,
                                    medicineUnit: .gram,
                                    medicineFrequency: 8,
-                                   administrationTime: Date(),
+                                   medicineInterval: 1,
+                                   administrationTime: ["11:00"],
                                    medicineShape: "Round",
                                    medicineLeftColor: "Blue",
                                    medicineRightColor: "Red",
@@ -100,9 +101,8 @@ struct MedicineDaily : View {
                 DateSetArray.dateArray.append(DayFormatter.string(from: currentDate))
                 // let _ = print(DateSetArray.dateArray)
                 // MM월dd 로 데이터 변환
-                DateSetArray.dayOfWeek.append(dayOfWeekFormatter.string(from: currentDate))
                 // let _ = print(DateSetArray.dayOfWeek)
-                DateSetArray.monthAndDay.append(monthAndDayFormatter.string(from: currentDate))
+
                 // 하루 씩 늘려가면서 날짜를 증가시킴
                 currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)!
             }
@@ -192,5 +192,5 @@ struct TabBarItem: View {
 // lazy 변수는 처음 사용되기 전까지는 연산이 되지 않는다
 
 #Preview {
-    MedicineDaily(DateSetArray: DateSetArray(dateArray: [], dayOfWeek: [], monthAndDay: []), indexBasic: 1156)
+    MedicineDaily(DateSetArray: DateSetArray(dateArray: [""]), indexBasic: 1157)
 }

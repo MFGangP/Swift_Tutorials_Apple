@@ -95,8 +95,9 @@ struct MedicineDetail {
     var medicineType : MedicineEnumType // 약 종류 (알약, 정제)
     var medicineVolume : Int // 약 용량 [XX]ml
     var medicineUnit : MedicineEnumVolume // 용량 단위 (ml, g, mg...)
-    var medicineFrequency : Int // 복용 주기 - 1일 ~ 99일
-    var administrationTime : Date // 복용 시간 hh:MM 시간, 분
+    var medicineFrequency : Int // 복용 주기 - 특정 주기, 주에 한번, 필요할 때 마다
+    var medicineInterval : Int // 복용 간격 - 1일 ~ 99일
+    var administrationTime : [String] // 복용 시간 hh:MM 시간, 분
     var medicineShape : String // 약 생김새 - 이미지 - 블랜더
     var medicineLeftColor : String // 약 색깔 - 왼쪽 - 블랜더
     var medicineRightColor : String // 약 색깔 - 오른쪽 - 블랜더
@@ -105,7 +106,7 @@ struct MedicineDetail {
 }
 
 struct PainDetail {
-    var id = UUID()
+    var id = UUID() // 투약 데이터와 묶기 위해서
     var painPart : ArticulationList // 아픈 관절 부위
     var painPartNumber : FingerAndToesNum // 아픈 관절 번호
     var painPartAttendants : ArticulationDirection // 통증 좌우 위치
@@ -116,6 +117,4 @@ struct PainDetail {
 struct DateSetArray {
     var id = UUID()
     var dateArray : [String]
-    var dayOfWeek : [String]
-    var monthAndDay : [String]
 }

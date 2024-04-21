@@ -109,5 +109,5 @@ struct View1: View {
     } // var body: some View {
 } // struct View1: View {
 #Preview {
-    MedicineDaily(DateSetArray: DateSetArray(dateArray: [], dayOfWeek: [], monthAndDay: []), indexBasic: 1157)
+    MedicineDaily(DateSetArray: DateSetArray(dateArray: [""]), indexBasic: 1157)
 }
