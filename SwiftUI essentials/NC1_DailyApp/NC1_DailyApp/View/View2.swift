@@ -40,7 +40,9 @@ struct View2: View {
                                 }
                             }
                         }
-                    }
+                    // LazyHstack 끝
+                    }.frame(height: 70)
+                // ScrollView 끝
                 }
 //            }
             .frame(width: 371, height: 30, alignment: .center)
@@ -53,7 +55,6 @@ struct View2: View {
             if let foundIndex = DateSetArray.dateArray.firstIndex(where: { $0 == DayFormatter.string(from: Date()) }) {
                 indexBasic = foundIndex
             }
-            
             // let _ = print(Date())
             // let _ = print(indexBasic)
             // let _ = print(DateSetArray.dateArray.count)

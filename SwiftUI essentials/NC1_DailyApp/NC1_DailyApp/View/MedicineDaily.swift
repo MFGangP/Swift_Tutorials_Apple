@@ -108,8 +108,8 @@ struct MedicineDaily : View {
             }
             let _ = print("\(daysInterval)")
             let _ = print("\(DateSetArray.dateArray)")
-            let _ = print("\(threeYearsAgo)")
-            let _ = print("\(twoMonthAfter)")
+            let _ = print("\(String(describing: threeYearsAgo))")
+            let _ = print("\(String(describing: twoMonthAfter))")
         }
     }
 }
