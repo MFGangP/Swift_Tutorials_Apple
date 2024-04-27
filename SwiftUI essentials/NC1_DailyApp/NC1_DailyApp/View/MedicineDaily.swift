@@ -57,7 +57,9 @@ struct MedicineDaily : View {
             // 탭뷰는 현재 탭 번호를 받는다.
             TabView(selection: self.$currentTab) {
                 View1(medicines: $medicines, DateSetArray: $DateSetArray).tag(0)
-                View2(medicines: $medicines, DateSetArray: $DateSetArray, indexBasic: $indexBasic).tag(1)
+                View2(data: DateSetArray.dateArray.self, content: {  in
+                    <#code#>
+                }).tag(1)
             }
             // 탭뷰 스타일 .naver는 아래 탭 위치를 안보여주고 .always 는 보여준다.
             .tabViewStyle(.page(indexDisplayMode: .always))

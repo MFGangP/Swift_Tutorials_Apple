@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68657B342BDD2CF80077C342 /* DateFormatCollect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68657B332BDD2CF80077C342 /* DateFormatCollect.swift */; };
 		687B0BBE2BCD0CD000CA7C57 /* MedicineDaily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B0BBD2BCD0CD000CA7C57 /* MedicineDaily.swift */; };
 		687B0BC02BCD0F7E00CA7C57 /* View1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B0BBF2BCD0F7E00CA7C57 /* View1.swift */; };
 		687B0BC22BCD0FAC00CA7C57 /* View2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B0BC12BCD0FAC00CA7C57 /* View2.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		68657B332BDD2CF80077C342 /* DateFormatCollect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatCollect.swift; sourceTree = "<group>"; };
 		687B0BBD2BCD0CD000CA7C57 /* MedicineDaily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineDaily.swift; sourceTree = "<group>"; };
 		687B0BBF2BCD0F7E00CA7C57 /* View1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View1.swift; sourceTree = "<group>"; };
 		687B0BC12BCD0FAC00CA7C57 /* View2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View2.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				68C83F742BCCF31A00E50DE0 /* Medicine.swift */,
+				68657B332BDD2CF80077C342 /* DateFormatCollect.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				687B0BC02BCD0F7E00CA7C57 /* View1.swift in Sources */,
 				687B0BC42BCD0FB900CA7C57 /* WheelPicker.swift in Sources */,
 				687B0BBE2BCD0CD000CA7C57 /* MedicineDaily.swift in Sources */,
+				68657B342BDD2CF80077C342 /* DateFormatCollect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
