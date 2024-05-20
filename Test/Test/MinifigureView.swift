@@ -16,7 +16,7 @@ struct TaskItem: Identifiable {
 }
 struct villageItem: Identifiable {
     let id: UUID = .init()
-    var systemName: String
+    var villageImageString: String
     var villageBackGroundColor : Color
 }
 //MARK: - 캐러셀 구현부
@@ -53,7 +53,7 @@ struct Carousel<Content: View, Items: RandomAccessCollection>: View where Items.
                     LazyHStack(alignment: .center) {
                         // data 갯수만큼 반복
                         ForEach(data) { item in
-                            // 상수 isFocused는 Bool 타입 
+                            // 상수 isFocused는 Bool 타입
                             let isFocused = isItemFocused(item)
                             // 뷰 생성
                             content(item, isFocused)
@@ -83,7 +83,7 @@ struct Carousel<Content: View, Items: RandomAccessCollection>: View where Items.
                     // 가장 바깥쪽에 있는 타켓만 스크롤 대상이 되도록 하는 모디파이어
                     .scrollTargetLayout()
                     // 가로 방향, [가로 화면 - itemWidth(뷰 입력시 기입받는 파라미터) * 4.86 한 값] 만큼 띄움
-                    .padding(.horizontal,  (size.width - itemWidth * 4.86))
+                    .padding(.horizontal,  (size.width - (itemWidth * 6.7)))
                 }
                 // 뷰 내 스크롤 바 표시 여부
                 .scrollIndicators(.hidden)
@@ -155,14 +155,7 @@ struct villageCarousel<Content: View, Items: RandomAccessCollection>: View where
                                 // 가로 itemWidth(뷰 입력시 기입받는 파라미터)를 가진 프레임
                                 .frame(width: itemWidth)
                                 // 외곽선 굵기 1 검은색
-                                .border(.black, width: 1)
-                                // 더 나아가서 스크롤 뷰의 위치에 따라 뷰를 시각적으로 변경하고 싶다면 어떻게 할까요?
-                                // ScrollTransition을 통해 뷰가 스크롤 뷰의 가시 영역에 들어가거나 가시 영역을 떠날 때 적용할 수 있습니다.
-                                // scrollTransition 모디파이어를 통해 content에 scaleEffect, rotationEffect, offset 등을 컨트롤 해줄 수 있죠.
-                                // 얘가 캐러셀을 사용할 때 가장 주요 역할을 하게 되는 요소로 보임.
-                                // 효과를 적용할 content 뷰를 받음
-                                // 스크롤의 현재 상태를 나타내는 ScrollTransitionPhase 타입의 값. 이 값은 애니메이션의 다양한 단계(isIdentity 등)를 포함
-                                
+                                //.border(.black, width: 1)
                         }
                         .padding(10)
                     }
@@ -200,26 +193,21 @@ struct MinifigureView: View {
     // 선택 되었는지 여부를 확인하기 위한 변수
     var isFocused: Bool = false
     
-    // 사각형 사이즈
-    private let RectangleSize: CGFloat = 30
-    // 이미지 사이즈
-    private let imageSize: CGFloat = 30
-    
     var body: some View {
-                VStack {
-                    // 이미지 에셋에서 불러온다.
-                    Image(systemName)
-                        .resizable()
-                    // 폰트는 body
-                        .font(.body)
-                        .bold(isFocused)
-                        .frame(width: 74, height: 104)
+        VStack {
+            // 이미지 에셋에서 불러온다.
+            Image(systemName)
+                .resizable()
+            // 폰트는 body
+                .font(.body)
+                .bold(isFocused)
+                .frame(width: 74, height: 104)
         }
     }
 }
 //MARK: - VillageView 구현부
 struct VillageView: View{
-    var systemName: String
+    var villageImageString: String
     var villageBackGroundColor : Color
     
     var body: some View{
@@ -228,19 +216,23 @@ struct VillageView: View{
                 // 테마를 보여줄 카드 생성
                 RoundedRectangle(cornerRadius: 12.0)
                 // 배경 색깔
-                    .fill(villageBackGroundColor)
+                    .fill(AngularGradient(gradient: Gradient(colors: [Color.white, Color(villageBackGroundColor)]),
+                                                    center: .topLeading,
+                                                    angle: .degrees(120))
+                                )
                 // 사각형 크기 - Figma
                     .frame(width: 330, height: 226)
                 // 그림자 효과
-                    .shadow(color: .gray, radius: 5) // , x: -5
-                    // .padding()
-                Image(systemName)
+                    .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 5, y: 1)
+                // .padding()
+                // 세트 이미지
+                Image(villageImageString)
                     .resizable()
                     .frame(width: 266, height: 216)
             }
         }
     }
 }
-    #Preview {
-        ContentView()
-    }
+#Preview {
+    ContentView()
+}

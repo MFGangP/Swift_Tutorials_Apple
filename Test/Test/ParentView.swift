@@ -22,13 +22,14 @@ struct ParentView: View {
     ]
     // 레고 빌리지 테스트 리스트
     @State var villageImage: [villageItem] = [
-        .init(systemName: "Village", villageBackGroundColor: .yellow),
-        .init(systemName: "Village", villageBackGroundColor: .blue),
-        .init(systemName: "Village", villageBackGroundColor: .mint),
-        .init(systemName: "Village", villageBackGroundColor: .cyan),
-        .init(systemName: "Village", villageBackGroundColor: .green),
-        .init(systemName: "Village", villageBackGroundColor: .brown)
+        .init(villageImageString: "Village", villageBackGroundColor: .yellow),
+        .init(villageImageString: "Village", villageBackGroundColor: .blue),
+        .init(villageImageString: "Village", villageBackGroundColor: .mint),
+        .init(villageImageString: "Village", villageBackGroundColor: .cyan),
+        .init(villageImageString: "Village", villageBackGroundColor: .green),
+        .init(villageImageString: "Village", villageBackGroundColor: .brown)
     ]
+    let textLeftedge : CGFloat = 30
     init() {
         if let firstItemID = items.first?.id {
             _scrolledID = State(initialValue: firstItemID)
@@ -40,24 +41,33 @@ struct ParentView: View {
         NavigationView(){
             ScrollView{
                 // Y축으로 쌓기
+                // 빌리지 캐러셀 뷰
                 VStack{
+                    HStack(alignment: .bottom){
+                        Text("My LEGO Village")
+                            .font(.title2)
+                            .bold()
+                        Spacer()
+                    }.padding(.leading, textLeftedge)
                     ZStack{
                         // 빌리지 캐러셀 뷰 호출
-                        villageCarousel(data: villageImage, itemWidth: 310, activeID: $scrolledID){item, isFocused  in
-                            VillageView(systemName: item.systemName, villageBackGroundColor: item.villageBackGroundColor)
+                        villageCarousel(data: villageImage, itemWidth: 315, activeID: $scrolledID){item, isFocused  in
+                            VillageView(villageImageString: item.villageImageString, villageBackGroundColor: item.villageBackGroundColor)
                         }
-                    }.frame(width: 375,height: 226)
+                    }.frame(width: 375,height: 245)
+                    Spacer(minLength: 30)
                     // 미니 피규어 카테고리 Zstack
                     ZStack{
                         Rectangle()
                             .foregroundColor(.white)
-                            .border(Color.black)
+                            //.border(Color.black)
                             .frame(width: 393, height: 207)
+                            .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.03), radius: 7.40)
                         VStack{
-                            // 여백 줄이기 위한 Spacer
-                            Spacer()
+                            // 여백 줄이기 위한 Spacer - 글자랑 이미지랑 붙이기 위해
+                            Spacer(minLength: 10)
                             // 텍스트 입력을 위한 HStack
-                            HStack(alignment: .top){
+                            HStack(alignment: .bottom){
                                 Text("Harry Potter")
                                     .font(.title2)
                                     .bold()
@@ -65,26 +75,22 @@ struct ParentView: View {
                                     .font(.system(size: 22))
                                     .foregroundColor(.gray)
                                 Spacer()
-                            }.padding()
-                            Spacer(minLength: 0)
+                            }.padding(.leading, textLeftedge)
                             // 캐러셀 뷰를 호출
-                            Carousel(data: items, itemWidth: 80, activeID: $scrolledID) { item, isFocused in
+                            Carousel(data: items, itemWidth: 55, activeID: $scrolledID) { item, isFocused in
                                 MinifigureView(systemName: item.systemName, isFocused: isFocused)
                             }
-                            // 여백 줄이기 위한 Spacer
-                        }.frame(width: 393, height: 207)
+                            // 여백 줄이기 위한 Spacer - 글자랑 이미지랑 붙이기 위해
+                            Spacer(minLength: 10)
+                        }.frame(width: 393, height: 180)
                     }
                     // 미니 피규어 카테고리 Zstack
                     ZStack{
-                        Rectangle()
-                            .foregroundColor(.white)
-                            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
-                            .frame(width: 393, height: 207)
                         VStack{
-                            // 여백 줄이기 위한 Spacer
-                            Spacer()
+                            // 여백 줄이기 위한 Spacer - 글자랑 이미지랑 붙이기 위해
+                            Spacer(minLength: 10)
                             // 텍스트 입력을 위한 HStack
-                            HStack(alignment: .top){
+                            HStack(alignment: .bottom){
                                 Text("Collectible Minifigures")
                                     .font(.title2)
                                     .bold()
@@ -92,12 +98,15 @@ struct ParentView: View {
                                     .font(.system(size: 22))
                                     .foregroundColor(.gray)
                                 Spacer()
-                            }.padding()
+                            }.padding(.leading, textLeftedge)
+                            Spacer()
                             // 캐러셀 뷰를 호출
-                            Carousel(data: items, itemWidth: 80, activeID: $scrolledID) { item, isFocused in
+                            Carousel(data: items, itemWidth: 55, activeID: $scrolledID) { item, isFocused in
                                 MinifigureView(systemName: item.systemName, isFocused: isFocused)
                             }
-                        }.frame(width: 393, height: 207)
+                            // 여백 줄이기 위한 Spacer - 글자랑 이미지랑 붙이기 위해
+                            Spacer(minLength: 10)
+                        }.frame(width: 393, height: 180)
                     }
                 }
                 // 네비게이션 바 타이틀
