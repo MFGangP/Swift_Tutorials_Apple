@@ -33,6 +33,7 @@ struct ContentView: View {
                 // .badge(10)
             }
             .font(.headline)
+            
     }
 }
 

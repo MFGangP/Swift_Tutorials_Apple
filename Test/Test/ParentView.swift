@@ -38,7 +38,7 @@ struct ParentView: View {
     
     var body: some View {
         // 탭 뷰 마다 네비게이션 뷰가 있어야 제목을 띄울 수 있다. 탭 뷰가 최상위
-        NavigationView(){
+        NavigationStack(){
             ScrollView{
                 // Y축으로 쌓기
                 // 빌리지 캐러셀 뷰
