@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		684EEBF22C286A1400A8D33D /* SpotifyHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684EEBF12C286A1400A8D33D /* SpotifyHomeView.swift */; };
+		684EEBF42C286E4E00A8D33D /* SpotifyCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684EEBF32C286E4E00A8D33D /* SpotifyCategoryCell.swift */; };
+		684EEBF72C28754300A8D33D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684EEBF62C28754300A8D33D /* Category.swift */; };
 		68FAC8E22C18346D001E7DA5 /* Rebuild_Popular_UI_Screens_in_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FAC8E12C18346D001E7DA5 /* Rebuild_Popular_UI_Screens_in_SwiftUIApp.swift */; };
 		68FAC8E42C18346D001E7DA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FAC8E32C18346D001E7DA5 /* ContentView.swift */; };
 		68FAC8E62C18346F001E7DA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68FAC8E52C18346F001E7DA5 /* Assets.xcassets */; };
@@ -42,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		684EEBF12C286A1400A8D33D /* SpotifyHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyHomeView.swift; sourceTree = "<group>"; };
+		684EEBF32C286E4E00A8D33D /* SpotifyCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyCategoryCell.swift; sourceTree = "<group>"; };
+		684EEBF62C28754300A8D33D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		68FAC8DE2C18346D001E7DA5 /* Rebuild_Popular_UI_Screens_in_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rebuild_Popular_UI_Screens_in_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68FAC8E12C18346D001E7DA5 /* Rebuild_Popular_UI_Screens_in_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rebuild_Popular_UI_Screens_in_SwiftUIApp.swift; sourceTree = "<group>"; };
 		68FAC8E32C18346D001E7DA5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,6 +93,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		684EEBED2C28698600A8D33D /* Spotify */ = {
+			isa = PBXGroup;
+			children = (
+				684EEBF52C28744400A8D33D /* Models */,
+				684EEBF02C2869DC00A8D33D /* Components */,
+				684EEBEE2C2869B500A8D33D /* Core */,
+			);
+			path = Spotify;
+			sourceTree = "<group>";
+		};
+		684EEBEE2C2869B500A8D33D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				684EEBF12C286A1400A8D33D /* SpotifyHomeView.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		684EEBF02C2869DC00A8D33D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				684EEBF32C286E4E00A8D33D /* SpotifyCategoryCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		684EEBF52C28744400A8D33D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				684EEBF62C28754300A8D33D /* Category.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		68FAC8D52C18346D001E7DA5 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +154,7 @@
 				68FAC8E12C18346D001E7DA5 /* Rebuild_Popular_UI_Screens_in_SwiftUIApp.swift */,
 				68FAC8E32C18346D001E7DA5 /* ContentView.swift */,
 				68FAC90F2C183915001E7DA5 /* Shared */,
+				684EEBED2C28698600A8D33D /* Spotify */,
 				68FAC8E52C18346F001E7DA5 /* Assets.xcassets */,
 				68FAC8E72C18346F001E7DA5 /* Preview Content */,
 			);
@@ -305,7 +346,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				68FAC9112C183953001E7DA5 /* ImageLoaderView.swift in Sources */,
+				684EEBF72C28754300A8D33D /* Category.swift in Sources */,
+				684EEBF42C286E4E00A8D33D /* SpotifyCategoryCell.swift in Sources */,
 				68FAC9152C1890AB001E7DA5 /* DatabaseHelper.swift in Sources */,
+				684EEBF22C286A1400A8D33D /* SpotifyHomeView.swift in Sources */,
 				68FAC8E42C18346D001E7DA5 /* ContentView.swift in Sources */,
 				68FAC8E22C18346D001E7DA5 /* Rebuild_Popular_UI_Screens_in_SwiftUIApp.swift in Sources */,
 				68FAC9132C1842BE001E7DA5 /* Contants.swift in Sources */,
