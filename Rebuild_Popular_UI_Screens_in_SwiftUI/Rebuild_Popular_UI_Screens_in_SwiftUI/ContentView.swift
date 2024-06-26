@@ -19,8 +19,11 @@ struct ContentView: View {
             VStack{
                 // 스위프트가 내부에서 구분이 가능한 상태여야 ForEach를 사용할 수 있다.
                 // String은 Hash 함수를 통해서 구분이 가능한 값이 나오기 때문에 id값으로 사용할 수 있음.
-                ForEach(users) { user in
-                    Text(user.firstName)
+//                ForEach(users) { user in
+//                    Text(user.firstName)
+//                }
+                ForEach(products) { product in
+                    Text(product.title)
                 }
             }
         }

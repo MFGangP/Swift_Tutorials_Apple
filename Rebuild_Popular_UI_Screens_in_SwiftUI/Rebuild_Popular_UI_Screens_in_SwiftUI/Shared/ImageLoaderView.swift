@@ -9,7 +9,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct ImageLoaderView: View {
-    var urlString : String = Contants.randomImage // Contants의 randomImage String값.
+    var urlString : String = Constants.randomImage // Constants의 randomImage String값.
     var resizeingMode : ContentMode = .fill // 경계가 바뀔 때 뷰가 내용을 어떻게 배치하는지 결정하는 데 사용되는 플래그. ContentMode 라는 데이터 형식을 처음 봄.
     
     var body: some View {

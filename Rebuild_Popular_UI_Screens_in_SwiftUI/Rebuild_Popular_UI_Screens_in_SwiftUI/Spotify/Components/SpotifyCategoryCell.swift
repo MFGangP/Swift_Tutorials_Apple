@@ -18,10 +18,20 @@ struct SpotifyCategoryCell: View {
             .frame(minWidth: 35)
             .padding(.vertical, 8)
             .padding(.horizontal, 10)
-            .background(isSelected ? .spotifyGreen : .spotifyDarkGray)
-            .foregroundColor(isSelected ? .spotifyBlack : .spotifyWhite)
+        // extension이 모디파이어에 사용되네?
+            .themeColor(isSelected: isSelected)
+//            .background(isSelected ? .spotifyGreen : .spotifyDarkGray)
+//            .foregroundColor(isSelected ? .spotifyBlack : .spotifyWhite)
             .cornerRadius(16)
         
+    }
+}
+// extension의 정확한 의미는 무엇일까?
+extension View {
+    func themeColor(isSelected : Bool) -> some View {
+        self
+            .background(isSelected ? .spotifyGreen : .spotifyDarkGray)
+            .foregroundColor(isSelected ? .spotifyBlack : .spotifyWhite)
     }
 }
 
