@@ -9,10 +9,11 @@ import SwiftUI
 import SwiftfulUI
 
 struct SpotifyHomeView: View {
-    
+    // 로그인이 안되어있는 상황도 있을 수 있으니까 nil로 초기화 해주는 것.
     @State private var currentUser: User? = nil
     @State private var selectedCategory: Category? = nil
     @State private var products: [Product] = []
+    @State private var productRows: [ProductRow] = []
     
     var body: some View {
         ZStack{
@@ -27,21 +28,19 @@ struct SpotifyHomeView: View {
                     Section {
                         VStack(spacing: 16){
                             recentsSection
+                                .padding(.horizontal, 16)
                             // 옵션 + 엔터
                             // 컨트롤 + M
                             if let product = products.first{
                                 newReleaseSection(product: product)
+                                    .padding(.horizontal, 16)
                             }
+                            
+                            listRows
+                            
                         }
-                        .padding(.horizontal, 16)
-                        
-                        ForEach(0..<20) { _ in
-                            Rectangle()
-                                .fill(Color.red)
-                                .frame(width: 200, height: 200)
-                        }
-                    // 여기서 나오는 헤더는 무슨 역할을 하는 것인가?
-                    } header: {
+                        // 여기서 나오는 헤더는 무슨 역할을 하는 것인가?
+                    }header: {
                         header
                     }
                 })
@@ -62,6 +61,15 @@ struct SpotifyHomeView: View {
             // 유저 목록을 불러와서 첫번째 유저를 넣어준다.
             currentUser = try await DatabaseHelper().getUsers().first
             products = try await Array(DatabaseHelper().getProducts().prefix(8))
+            
+            var rows: [ProductRow] = []
+            // compactMap은 map이랑 다르게 nil값이 아닌 값만 매핑해준다
+            let allBrands = Set(products.compactMap({ $0.brand }))
+            for brand in allBrands {
+                // let products = self.products.filter({ $0.brand == brand })
+                rows.append(ProductRow(title: brand.capitalized, products: products))
+            }
+            productRows = rows
         } catch {
             
         }
@@ -89,9 +97,12 @@ struct SpotifyHomeView: View {
             ScrollView(.horizontal){
                 // 가로로 간격을 8 픽셀
                 HStack(spacing: 8){
+                    // 모든 케이스를 다 꺼내준다.
                     ForEach(Category.allCases, id: \.self) { category in
                         SpotifyCategoryCell(
-                            //
+                            // 그냥 카테고리만 쓰면 all이라는 인스턴스만 나온다.
+                            // rawValue = all을 String 값으로 바꿔준다.
+                            // capitalized 첫번째 단어를 대문자
                             title: category.rawValue.capitalized,
                             // 선택된 카테고리가 현재 카테고리와 같은가 Bool 타입 리턴으로 체크
                             isSelected: category == selectedCategory
@@ -113,31 +124,63 @@ struct SpotifyHomeView: View {
     }
     
     private var recentsSection: some View {
-        NonLazyVGrid(columns: 2, alignment: .center, spacing: 10, items: products) { 
+        NonLazyVGrid(columns: 2, alignment: .center, spacing: 10, items: products) {
             product in
             if let product {
                 SpotifyRecentsCell(
                     imageName: product.firstImage,
                     title: product.title
                 )
+                .asButton(.press){
+                    
+                }
             }
         }
     }
     
     private func newReleaseSection(product: Product) -> some View {
-            SpotifyNewReleaseCell(
-                imageName: product.firstImage,
-                headline: product.brand,
-                subheadline: product.category,
-                title: product.title,
-                subtitle: product.description,
-                onAddToPlaylistPressed: {
-                    
-                },
-                onPlayPressed: {
-                    
+        SpotifyNewReleaseCell(
+            imageName: product.firstImage,
+            headline: product.brand,
+            subheadline: product.category,
+            title: product.title,
+            subtitle: product.description,
+            onAddToPlaylistPressed: {
+                
+            },
+            onPlayPressed: {
+                
+            }
+        )
+    }
+    private var listRows: some View {
+        ForEach(productRows) { row in
+            VStack(spacing: 8){
+                Text(row.title)
+                    .font(.title)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.spotifyWhite)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 16)
+                
+                ScrollView(.horizontal){
+                    HStack(alignment: .top, spacing: 16){
+                        ForEach(row.products) { product in
+                            ImageTitleRowCell(
+                                imageSize: 120,
+                                imageName: product.firstImage,
+                                title: product.title
+                            )
+                            .asButton(.press) {
+                                
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 16)
                 }
-            )
+                .scrollIndicators(.hidden)
+            }
+        }
     }
 }
 

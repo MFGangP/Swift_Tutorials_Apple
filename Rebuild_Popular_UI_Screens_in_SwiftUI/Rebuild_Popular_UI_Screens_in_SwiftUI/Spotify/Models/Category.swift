@@ -7,7 +7,8 @@
 
 import Foundation
 
-//CaseIterable 이게 뭐지
+// CaseIterable 이게 뭐지
+// 반복하면서 값을 뿌려주기 위해.
 enum Category: String, CaseIterable {
     case all, music, podcasts, audiobooks
 }

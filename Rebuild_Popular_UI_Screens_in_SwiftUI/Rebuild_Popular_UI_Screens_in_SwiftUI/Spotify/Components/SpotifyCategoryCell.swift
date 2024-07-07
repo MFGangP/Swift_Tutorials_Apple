@@ -27,6 +27,8 @@ struct SpotifyCategoryCell: View {
     }
 }
 // extension의 정확한 의미는 무엇일까?
+// extension을 쓰는 이유는 스위프트가 만들어놓은 기능 이외에 내가 만들고 싶은 기능을 추가하고 싶을때 사용하는 부분.
+// View라는 프로토콜을 체택하는 곳이 있으면 모두 사용할 수 있다 - 중복되는 부분
 extension View {
     func themeColor(isSelected : Bool) -> some View {
         self

@@ -15,6 +15,10 @@ struct SpotifyNewReleaseCell: View {
     var title: String? = "Some Playlist"
     var subtitle: String? = "Single = title"
     // 이렇게 옵셔널로 주면 프리뷰를 만들 때 굳이 입력을 안해줘도 된다.
+    // 클로저
+    // 다른 데서 쓰고싶고, 이걸 초기화 하는 곳에서 정의를 하기 위해.
+    // 동작을 전달하기 위해 이렇게 사용했음. + 버튼과 재생 버튼을 눌렸을 때
+    // 내부에서 nil로 초기화를 해줬기 때문에
     var onAddToPlaylistPressed: (() -> Void)? = nil
     var onPlayPressed: (() -> Void)? = nil
     
@@ -52,11 +56,14 @@ struct SpotifyNewReleaseCell: View {
                             Text(title)
                                 .fontWeight(.semibold)
                                 .foregroundStyle(.spotifyWhite)
+                                .lineLimit(1)
                         }
                         if let subtitle {
                             Text(subtitle)
                                 .foregroundStyle(.spotifyLightGray)
+                                .lineLimit(1)
                         }
+                            
                     }
                     .font(.callout)
                     
