@@ -16,6 +16,7 @@ struct PlaylistHeaderCell: View {
     var shadowColor: Color = .spotifyBlack.opacity(0.8)
     
     var body: some View {
+        // Rectangle을 써주는 이유는 혹시나 이미지가 로딩이 안되어있을 때 이미지 적용이 안되는 에러를 방지하기 위해서
         Rectangle()
             .opacity(0)
             .overlay(
