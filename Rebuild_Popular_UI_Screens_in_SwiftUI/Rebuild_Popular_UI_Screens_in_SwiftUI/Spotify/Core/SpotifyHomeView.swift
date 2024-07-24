@@ -7,8 +7,12 @@
 
 import SwiftUI
 import SwiftfulUI
+import SwiftfulRouting
 
 struct SpotifyHomeView: View {
+    
+    @Environment(\.router) var router
+    
     // 로그인이 안되어있는 상황도 있을 수 있으니까 nil로 초기화 해주는 것.
     @State private var currentUser: User? = nil
     @State private var selectedCategory: Category? = nil
@@ -57,6 +61,7 @@ struct SpotifyHomeView: View {
         .toolbar(.hidden, for: .navigationBar)
     }
     private func getData() async {
+        guard products.isEmpty else { return }
         do {
             // 유저 목록을 불러와서 첫번째 유저를 넣어준다.
             currentUser = try await DatabaseHelper().getUsers().first
@@ -87,7 +92,7 @@ struct SpotifyHomeView: View {
                     .clipShape(Circle())
                     // 나중에 눌렸을 때 프로필로 연결되게 해야하니까 넣어줌.
                     .onTapGesture {
-                        
+                        router.dismissScreen()
                     }
                 }
             }
@@ -132,9 +137,15 @@ struct SpotifyHomeView: View {
                     title: product.title
                 )
                 .asButton(.press){
-                    
+                    goToPlaylistView(product: product)
                 }
             }
+        }
+    }
+    
+    private func goToPlaylistView(product: Product) {
+        router.showScreen(.push) { _ in
+            SpotifyPlaylistView(product: product, user: currentUser!)
         }
     }
     
@@ -149,7 +160,7 @@ struct SpotifyHomeView: View {
                 
             },
             onPlayPressed: {
-                
+                goToPlaylistView(product: product)
             }
         )
     }
@@ -172,7 +183,7 @@ struct SpotifyHomeView: View {
                                 title: product.title
                             )
                             .asButton(.press) {
-                                
+                                goToPlaylistView(product: product)
                             }
                         }
                     }
@@ -186,5 +197,7 @@ struct SpotifyHomeView: View {
 
 
 #Preview {
-    SpotifyHomeView()
+    RouterView{ _ in
+        SpotifyHomeView()
+    }
 }

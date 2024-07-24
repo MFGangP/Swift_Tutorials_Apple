@@ -87,13 +87,13 @@ struct PlaylistDescriptionCell: View {
                     .font(.system(size: 24))
                     .background(Color.black.opacity(0.001))
                     .onTapGesture {
-                        <#code#>
+                        
                     }
                 Image(systemName: "play.circle.fill")
                     .font(.system(size: 46))
                     .background(Color.black.opacity(0.001))
                     .onTapGesture {
-                        <#code#>
+                        
                     }
             }
         }
